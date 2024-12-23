@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wui/themes/constants.dart';
+import '../themes/constants.dart';
 
 class WuiTextHeading1 extends StatelessWidget {
 
@@ -7,8 +7,7 @@ class WuiTextHeading1 extends StatelessWidget {
   final TextStyle? textStyle;
   final TextAlign? textAlign;
 
-  const WuiTextHeading1(String text, { super.key, this.textStyle, this.textAlign }) 
-    : text = text;
+  const WuiTextHeading1(String text, { super.key, this.textStyle, this.textAlign }) : text = text;
 
   double _fontSize(BuildContext context) {
     double vw = MediaQuery.of(context).size.width;

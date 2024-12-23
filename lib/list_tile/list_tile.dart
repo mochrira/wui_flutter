@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wui/themes/constants.dart';
+import '../themes/constants.dart';
 
 BorderSide wuiListTileBorderSide = BorderSide(
   color: wuiColorBorder

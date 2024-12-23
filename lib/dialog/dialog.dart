@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wui/button/button.dart';
+import '../button/button.dart';
 
 class WuiDialog extends StatelessWidget {
 

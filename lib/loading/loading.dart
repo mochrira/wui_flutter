@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wui/modal/modal.dart';
+import '../modal/modal.dart';
 
 class WuiLoading extends StatelessWidget {
   const WuiLoading({ super.key });

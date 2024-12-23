@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wui/button/button.dart';
-import 'package:wui/themes/constants.dart';
+import '../button/button.dart';
+import '../themes/constants.dart';
 
 const wuiModalFooterButtonPadding = EdgeInsets.fromLTRB(16, 0, 16, 16);
 

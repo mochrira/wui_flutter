@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wui/styles/typography.dart';
+
+import '../styles/typography.dart';
 
 class WuiDrawerHeader extends StatelessWidget {
 
