@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 Color wuiColorDrawer = const Color(0xFF0f172a);
 Color wuiColorHeading = const Color(0xFF1e293b);
@@ -12,8 +11,8 @@ Color wuiColorSuccess = const Color(0xFF22c55e);
 Color wuiColorWarning = const Color(0xFFf59e0b);
 
 Color wuiColorBorder = const Color(0xFFe2e8f0);
-TextStyle wuiHeadingFont = GoogleFonts.rajdhani();
-TextStyle wuiDefaultFont = GoogleFonts.inter();
+TextStyle wuiHeadingFont = const TextStyle();
+TextStyle wuiDefaultFont = const TextStyle();
 
 double wuiAppBarHeight = 64;
 

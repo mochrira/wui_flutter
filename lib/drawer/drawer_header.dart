@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:wui_flutter/drawer/drawer_model.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../styles/typography.dart';
 
-class WuiDrawerHeader extends StatelessWidget {
+class WuiDrawerHeader extends StatefulWidget {
 
   final Widget? title;
   final Widget? subTitle;
+  final WuiDrawerMode? mode;
 
-  const WuiDrawerHeader({super.key, this.title, this.subTitle});
+  const WuiDrawerHeader({super.key, this.title, this.subTitle, this.mode});
 
+  @override
+  State<WuiDrawerHeader> createState() => _WuiDrawerHeaderState();
+}
+
+class _WuiDrawerHeaderState extends State<WuiDrawerHeader> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 24),
       child: DefaultTextStyle(
-        style: wuiDefaultTextStyle.copyWith(
+        style: WuiTypography.defaultTextStyle.copyWith(
           fontWeight: FontWeight.w500
         ),
         child: Column(
@@ -23,8 +31,7 @@ class WuiDrawerHeader extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Container(
-                width: 72,
-                height: 72,
+                width: 72, height: 72,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(36),
                   color: Colors.grey.shade300
@@ -33,19 +40,29 @@ class WuiDrawerHeader extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             RawMaterialButton(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              padding: const EdgeInsets.fromLTRB(24, 12, 24, 16),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: [
-                    DefaultTextStyle(style: wuiDrawerHeaderTitleStyle, child: title ?? const Text("")),
-                    DefaultTextStyle(style: wuiDrawerHeaderSubTitleStyle, child: subTitle ?? const Text("")),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          DefaultTextStyle(style: WuiTypography.drawerHeaderTitleStyle, child: widget.title ?? const Text("")),
+                          DefaultTextStyle(style: WuiTypography.drawerHeaderSubTitleStyle, child: widget.subTitle ?? const Text("")),
+                        ],
+                      ),
+                    ),
+                    Icon(widget.mode == WuiDrawerMode.primary ? MdiIcons.chevronDown : MdiIcons.chevronUp)
                   ],
                 ),
               ),
               onPressed: () {
-                
+                WuiDrawerModel().setMode(
+                  widget.mode == WuiDrawerMode.primary ? 
+                    WuiDrawerMode.secondary : WuiDrawerMode.primary
+                );
               }
             ),
           ],

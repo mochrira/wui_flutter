@@ -1,6 +1,6 @@
+import 'package:example/shared/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:wui/wui.dart';
+import 'package:wui_flutter/wui_flutter.dart';
 
 class PesertaPage extends StatefulWidget {
   const PesertaPage({
@@ -42,59 +42,7 @@ class _PesertaPageState extends State<PesertaPage> {
   @override
   Widget build(BuildContext context) {
     return WuiPage(
-      drawer: WuiDrawer(
-        items: [
-          const WuiDrawerHeader(
-            title: Text("Moch. Rizal Rachmadani"),
-            subTitle: Text("mochrira@gmail.com"),
-          ),
-          WuiDrawerButton(
-            icon: Icon(MdiIcons.home),
-            onPressed: () { },
-            child: const Text("Dashboard")
-          ),
-          WuiDrawerButton(
-            icon: Icon(MdiIcons.clipboardCheck),
-            onPressed: () { },
-            child: const Text("Tugas")
-          ),
-          WuiDrawerButton(
-            icon: Icon(MdiIcons.textBox),
-            onPressed: () { },
-            child: const Text("Penjualan")
-          ),
-          WuiDrawerButton(
-            icon: Icon(MdiIcons.checkDecagram),
-            onPressed: () { },
-            child: const Text("Pengambilan")
-          ),
-          WuiDrawerButton(
-            icon: Icon(MdiIcons.shopping),
-            onPressed: () { },
-            child: const Text("Layanan")
-          ),
-          WuiDrawerButton(
-            icon: Icon(MdiIcons.folder),
-            onPressed: () { },
-            child: const Text("Kategori")
-          ),
-          WuiDrawerButton(
-            icon: Icon(MdiIcons.scaleBalance),
-            onPressed: () { },
-            child: const Text("Satuan")
-          ),
-          WuiDrawerButton(
-            icon: Icon(MdiIcons.accountBox),
-            onPressed: () { },
-            child: const Text("Kontak")
-          ),
-          WuiDrawerButton(
-            icon: Icon(MdiIcons.accountBoxMultiple),
-            onPressed: () { },
-            child: const Text("Grup")
-          )
-        ],
-      ),
+      drawer: const AppDrawer(),
       appBar: const WuiAppBar(),
       body: Container()
     );

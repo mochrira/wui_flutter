@@ -25,5 +25,7 @@ export 'app_bar/app_bar.dart';
 export 'drawer/drawer.dart';
 export 'drawer/drawer_header.dart';
 export 'drawer/drawer_button.dart';
+export 'drawer/drawer_divider.dart';
+export 'drawer/drawer_model.dart';
 
 export 'styles/typography.dart';

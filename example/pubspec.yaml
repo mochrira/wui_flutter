@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   
-  wui: 
+  wui_flutter: 
     path: ../
   json_annotation:
   material_design_icons_flutter:

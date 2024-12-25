@@ -1,6 +1,6 @@
-import 'package:example/pages/peserta_page.dart';
+import 'package:example/pages/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:wui/wui.dart';
+import 'package:wui_flutter/wui_flutter.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: WuiDefaultTheme.light(context, primarySwatch: Colors.blue),
-      home: const PesertaPage()
+      home: const HomePage()
     );
   }
 }
