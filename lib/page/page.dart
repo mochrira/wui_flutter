@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../styles/colors.dart';
+
 class WuiPage extends StatelessWidget {
 
   final Widget body;
@@ -11,6 +13,7 @@ class WuiPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: WuiColors.surfaceColor,
       drawer: drawer,
       appBar: appBar,
       body: SafeArea(

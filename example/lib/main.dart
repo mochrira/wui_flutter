@@ -16,10 +16,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {  
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Demo',
-      theme: WuiDefaultTheme.light(context, primarySwatch: Colors.blue),
-      home: const HomePage()
+      home: HomePage()
     );
   }
 }

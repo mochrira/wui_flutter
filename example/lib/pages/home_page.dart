@@ -1,5 +1,6 @@
 import 'package:example/shared/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:wui_flutter/wui_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,8 +24,48 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return WuiPage(
       drawer: const AppDrawer(),
-      appBar: const WuiAppBar(),
-      body: Container()
+      body: WuiSliverView(
+        appBar: WuiSliverAppBar(
+          actions: [IconButton(
+            onPressed: () {}, 
+            icon: Icon(MdiIcons.magnify)
+          )],
+        ),
+        body: WuiSliverList(
+          count: 50,
+          builder: (BuildContext context, int index) {
+            return WuiListTile(
+              onTap: () async {
+                int res = await wuiShowModalSheet(
+                  context: context, 
+                  title: Text("Moch. Rizal Rachmadani $index"),
+                  actions: (BuildContext context) =>  [
+                    WuiListTile(
+                      leading: Icon(MdiIcons.leadPencil),
+                      title: const Text("Edit Peserta"),
+                      onTap: () {
+                        Navigator.of(context).pop(0);
+                      },
+                    ),
+                    WuiListTile(
+                      leading: Icon(MdiIcons.trashCan),
+                      title: const Text("Hapus Peserta"),
+                      onTap: () {
+                        Navigator.of(context).pop(1);
+                      },
+                    )
+                  ]
+                );
+                print(res);
+              },
+              leading: Icon(MdiIcons.accountCircle),
+              title: Text("Moch. Rizal Rachmadani $index"),
+              subTitle: const Text("mochrira@gmail.com"),
+              trailing: Icon(MdiIcons.dotsVertical),
+            );
+          }
+        ),
+      )
     );
   }
 }

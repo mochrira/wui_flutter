@@ -30,5 +30,26 @@ class WuiTypography {
     fontWeight: FontWeight.w500
   );
 
+  static TextStyle sliverTitleTextStyle = defaultTextStyle.copyWith(
+    fontWeight: FontWeight.normal,
+    fontSize: 32
+  );
+
+  static TextStyle listTileTitleStyle = defaultTextStyle.copyWith(
+    fontWeight: FontWeight.w500,
+    height: 1.5
+  );
+
+  static TextStyle listTileSubTitleStyle = defaultTextStyle.copyWith(
+    fontWeight: FontWeight.normal,
+    height: 1.375
+  );
+
+  static TextStyle sheetTitleStyle = defaultTextStyle.copyWith(
+    fontWeight: FontWeight.w500,
+    fontSize: 18,
+    height: 1.5
+  );
+
 }
 
