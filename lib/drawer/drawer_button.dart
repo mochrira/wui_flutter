@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wui_flutter/drawer/drawer_model.dart';
-import 'package:wui_flutter/styles/colors.dart';
-import 'package:wui_flutter/styles/typography.dart';
+import '../drawer/drawer_model.dart';
+import '../styles/colors.dart';
+import '../styles/typography.dart';
 
 class WuiDrawerButton extends StatelessWidget {
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wui_flutter/drawer/drawer_model.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../drawer/drawer_model.dart';
 import '../styles/typography.dart';
 
 class WuiDrawerHeader extends StatefulWidget {

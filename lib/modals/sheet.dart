@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wui_flutter/styles/typography.dart';
+
+import '../styles/typography.dart';
 
 class WuiSheet extends StatelessWidget {
 

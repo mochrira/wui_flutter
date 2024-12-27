@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:wui_flutter/modals/sheet.dart';
 
+import '../modals/sheet.dart';
 import '../styles/colors.dart';
 
-dynamic wuiShowModalSheet({
+Future<dynamic> wuiShowModalSheet({
   required BuildContext context,
   required List<Widget>? Function(BuildContext context) actions,
   Widget? title

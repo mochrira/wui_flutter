@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wui_flutter/styles/colors.dart';
+
+import '../styles/colors.dart';
 
 class WuiApp extends StatelessWidget {
 

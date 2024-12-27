@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wui_flutter/styles/typography.dart';
-import '../themes/constants.dart';
 
-BorderSide wuiListTileBorderSide = BorderSide(
-  color: wuiColorBorder
-);
+import '../styles/typography.dart';
 
 class WuiListTile extends StatelessWidget {
 

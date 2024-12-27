@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wui_flutter/drawer/drawer_button.dart';
-import 'package:wui_flutter/drawer/drawer_header.dart';
-import 'package:wui_flutter/drawer/drawer_model.dart';
+import '../drawer/drawer_button.dart';
+import '../drawer/drawer_header.dart';
+import '../drawer/drawer_model.dart';
 
 class WuiDrawer extends StatefulWidget {
 
