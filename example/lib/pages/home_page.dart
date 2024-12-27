@@ -30,7 +30,10 @@ class _HomePageState extends State<HomePage> {
           
         }
       ),
-      body: WuiSliverView(
+      body: WuiSliverView.withRefreshIndicator(
+        onRefresh: () async {
+          
+        },
         appBar: WuiSliverAppBar(
           title: const Text("Dashboard"),
           subTitle: const Text("50 Pengguna"),

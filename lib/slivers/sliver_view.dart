@@ -13,16 +13,31 @@ class WuiSliverView extends StatelessWidget {
     return context.findAncestorWidgetOfExactType<WuiPage>()?.fab != null;
   }
 
+  Widget main(BuildContext context) {
+    return CustomScrollView(
+      slivers: [
+        ...(appBar != null ? [appBar!] : []),
+        ...(body != null ? [body!] : []),
+        ...(hasFab(context) ? [const SliverPadding(padding: EdgeInsets.only(bottom: 96))] : [])
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    return main(context);
+  }
+
+  static withRefreshIndicator({
+    required Future<void> Function() onRefresh,
+    Widget? appBar,
+    Widget? body
+  }) {
     return RefreshIndicator(
-      onRefresh: () async { },
-      child: CustomScrollView(
-        slivers: [
-          ...(appBar != null ? [appBar!] : []),
-          ...(body != null ? [body!] : []),
-          ...(hasFab(context) ? [const SliverPadding(padding: EdgeInsets.only(bottom: 96))] : [])
-        ],
+      onRefresh: onRefresh,
+      child: WuiSliverView(
+        appBar: appBar,
+        body: body,
       ),
     );
   }

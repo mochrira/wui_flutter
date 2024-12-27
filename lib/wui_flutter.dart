@@ -21,6 +21,7 @@ library wui;
 export 'styles/typography.dart';
 export 'styles/colors.dart';
 
+export 'app/app.dart';
 export 'page/page.dart';
 
 export 'app_bar/app_bar.dart';
