@@ -13,4 +13,7 @@ class WuiColors {
   static Color appBarBackgroundColor = surfaceColor;
   static Color scaffoldBackgroundColor = surfaceColor;  
 
+  static Color buttonPrimaryTextColor = Colors.white;
+  static Color buttonPrimaryIconColor = Colors.white;
+
 }

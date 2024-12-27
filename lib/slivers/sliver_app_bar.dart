@@ -5,9 +5,11 @@ import '../styles/typography.dart';
 
 class WuiSliverAppBar extends StatelessWidget {
 
+  final Widget? title;
+  final Widget? subTitle;
   final List<Widget>? actions;
 
-  const WuiSliverAppBar({super.key, this.actions});
+  const WuiSliverAppBar({super.key, this.actions, this.title, this.subTitle});
 
   double expandedHeight(BuildContext context) {
     return MediaQuery.of(context).size.width / 4 * 3;
@@ -30,8 +32,14 @@ class WuiSliverAppBar extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Dashboard", style: WuiTypography.sliverTitleTextStyle),
-              Text("125 Transaksi", style: WuiTypography.defaultTextStyle)
+              ...(title != null ? [DefaultTextStyle(
+                style: WuiTypography.sliverTitleTextStyle,
+                child: title!
+              )] : []),
+              ...(subTitle != null ? [DefaultTextStyle(
+                style: WuiTypography.sliverSubTitleTextStyle,
+                child: subTitle!
+              )] : [])
             ],
           )
         ),

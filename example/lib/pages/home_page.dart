@@ -24,8 +24,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return WuiPage(
       drawer: const AppDrawer(),
+      fab: WuiButtonFab(
+        icon: Icon(MdiIcons.plus),
+        onPressed: () {
+          
+        }
+      ),
       body: WuiSliverView(
         appBar: WuiSliverAppBar(
+          title: const Text("Dashboard"),
+          subTitle: const Text("50 Pengguna"),
           actions: [IconButton(
             onPressed: () {}, 
             icon: Icon(MdiIcons.magnify)
@@ -36,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           builder: (BuildContext context, int index) {
             return WuiListTile(
               onTap: () async {
-                int res = await wuiShowModalSheet(
+                await wuiShowModalSheet(
                   context: context, 
                   title: Text("Moch. Rizal Rachmadani $index"),
                   actions: (BuildContext context) =>  [
@@ -56,7 +64,6 @@ class _HomePageState extends State<HomePage> {
                     )
                   ]
                 );
-                print(res);
               },
               leading: Icon(MdiIcons.accountCircle),
               title: Text("Moch. Rizal Rachmadani $index"),

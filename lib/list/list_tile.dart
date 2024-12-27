@@ -33,7 +33,12 @@ class WuiListTile extends StatelessWidget {
       onPressed: onTap,
       child: Row(
         children: [
-          ...(leading != null ? [leading!, const SizedBox(width: 24)] : []),
+          ...(leading != null ? [IconTheme(
+            data: const IconThemeData(
+              size: 32
+            ),
+            child: leading!
+          ), const SizedBox(width: 20)] : []),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

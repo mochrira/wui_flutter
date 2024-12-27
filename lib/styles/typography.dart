@@ -35,8 +35,11 @@ class WuiTypography {
     fontSize: 32
   );
 
+  static TextStyle sliverSubTitleTextStyle = defaultTextStyle;
+
   static TextStyle listTileTitleStyle = defaultTextStyle.copyWith(
     fontWeight: FontWeight.w500,
+    fontSize: 16,
     height: 1.5
   );
 
@@ -49,6 +52,14 @@ class WuiTypography {
     fontWeight: FontWeight.w500,
     fontSize: 18,
     height: 1.5
+  );
+
+  static TextStyle buttonTextStyle = defaultTextStyle.copyWith(
+    fontWeight: FontWeight.w500
+  );
+
+  static TextStyle buttonPrimaryTextStyle = buttonTextStyle.copyWith(
+    color: WuiColors.buttonPrimaryTextColor
   );
 
 }
