@@ -22,10 +22,10 @@ class WuiSliverAppBar extends StatelessWidget {
       toolbarHeight: 56,
       collapsedHeight: 56,
       expandedHeight: expandedHeight(context),
-      backgroundColor: WuiColors.appBarBackgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       pinned: true,
       flexibleSpace: Container(
-        color: WuiColors.surfaceColor,
+        color: Theme.of(context).colorScheme.surface,
         padding: const EdgeInsets.only(top: 64),
         child: Center(
           child: Column(
