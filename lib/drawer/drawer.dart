@@ -51,7 +51,7 @@ class _WuiDrawerState extends State<WuiDrawer> {
       listenable: _model,
       builder: (BuildContext context, Widget? child) {
         return Drawer(
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.zero
           ),

@@ -4,62 +4,57 @@ import 'colors.dart';
 
 class WuiTypography {
 
-  static TextStyle defaultTextStyle = TextStyle(
+  static get defaultTextStyle => const TextStyle(
     fontFamily: 'Inter',
+    fontWeight: FontWeight.w400
+  );
+
+  static get drawerHeaderTitleStyle => defaultTextStyle.copyWith(
     fontWeight: FontWeight.w400,
-    color: WuiColors.textColor
-  );
-
-  static TextStyle drawerHeaderTitleStyle = defaultTextStyle.copyWith(
-    fontWeight: FontWeight.w500,
-    fontSize: 18,
+    fontSize: 16.0,
     height: 1.5
   );
 
-  static TextStyle drawerHeaderSubTitleStyle = defaultTextStyle.copyWith(
+  static get drawerHeaderSubTitleStyle => defaultTextStyle.copyWith(
     height: 1.5
   );
 
-  static TextStyle drawerDividerTextStyle = defaultTextStyle.copyWith(
+  static get drawerDividerTextStyle => defaultTextStyle.copyWith(
     color: Colors.black54,
     fontWeight: FontWeight.w700,
-    fontSize: 12
+    fontSize: 12.0
   );
 
-  static TextStyle drawerButtonTextStyle = defaultTextStyle.copyWith(
+  static get drawerButtonTextStyle => defaultTextStyle.copyWith(
     fontWeight: FontWeight.w500
   );
 
-  static TextStyle sliverTitleTextStyle = defaultTextStyle.copyWith(
+  static get sliverTitleTextStyle => defaultTextStyle.copyWith(
     fontWeight: FontWeight.normal,
-    fontSize: 32
+    fontSize: 32.0
   );
 
-  static TextStyle sliverSubTitleTextStyle = defaultTextStyle;
+  static get sliverSubTitleTextStyle => defaultTextStyle;
 
-  static TextStyle listTileTitleStyle = defaultTextStyle.copyWith(
+  static get listTileTitleStyle => defaultTextStyle.copyWith(
     fontWeight: FontWeight.w500,
-    fontSize: 16,
-    height: 1.5
+    fontSize: 16.0,
+    height: 1.15
   );
 
-  static TextStyle listTileSubTitleStyle = defaultTextStyle.copyWith(
+  static get listTileSubTitleStyle => defaultTextStyle.copyWith(
     fontWeight: FontWeight.normal,
     height: 1.375
   );
 
-  static TextStyle sheetTitleStyle = defaultTextStyle.copyWith(
+  static get sheetTitleStyle => defaultTextStyle.copyWith(
     fontWeight: FontWeight.w500,
     fontSize: 18,
     height: 1.5
   );
 
-  static TextStyle buttonTextStyle = defaultTextStyle.copyWith(
+  static get buttonTextStyle => defaultTextStyle.copyWith(
     fontWeight: FontWeight.w500
-  );
-
-  static TextStyle buttonPrimaryTextStyle = buttonTextStyle.copyWith(
-    color: WuiColors.buttonPrimaryTextColor
   );
 
 }

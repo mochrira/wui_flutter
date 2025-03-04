@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../styles/colors.dart';
-
 class WuiAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final Widget? leading;
@@ -13,7 +11,7 @@ class WuiAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: WuiColors.appBarBackgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       leading: leading,
       title: title,
       actions: actions

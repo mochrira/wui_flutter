@@ -35,6 +35,7 @@ dependencies:
     path: ../
   json_annotation:
   material_design_icons_flutter:
+  scrollable_clean_calendar:
 
 
   # The following adds the Cupertino Icons font to your application.

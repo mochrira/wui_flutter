@@ -20,7 +20,7 @@ class WuiButtonFab extends StatelessWidget {
       onPressed: onPressed, 
       child: icon != null ? IconTheme(
         data: IconThemeData(
-          color: WuiColors.buttonPrimaryIconColor,
+          color: WuiColors.buttonPrimaryForegroundColor,
         ),
         child: icon!
       ) : null,

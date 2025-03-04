@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../styles/typography.dart';
-
 class WuiDrawerDivider extends StatelessWidget {
 
   final Widget? child;
@@ -11,9 +9,13 @@ class WuiDrawerDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(24, 16, 24, 12),
+      padding: const EdgeInsets.fromLTRB(24, 24, 24, 12),
       child: DefaultTextStyle(
-        style: WuiTypography.drawerDividerTextStyle,
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.onSurface.withAlpha(100),
+          fontWeight: FontWeight.w600,
+          fontSize: 11.0
+        ),
         child: child ?? const SizedBox()
       )
     );

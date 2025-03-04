@@ -9,13 +9,17 @@ class WuiListTile extends StatelessWidget {
   final Widget? subTitle;
   final Widget? leading;
   final Widget? trailing;
+  final EdgeInsets? padding;
+  final Color? fillColor;
 
   const WuiListTile({ super.key, 
     this.onTap,
     this.title,
     this.subTitle,
     this.leading,
-    this.trailing
+    this.trailing,
+    this.padding,
+    this.fillColor
   });
 
   final IconThemeData iconThemeData = const IconThemeData(
@@ -24,8 +28,16 @@ class WuiListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EdgeInsets defaultPadding = const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
+
     return RawMaterialButton(
-      padding: const EdgeInsets.all(16),
+      elevation: 0.0,
+      focusElevation: 0.0,
+      hoverElevation: 0.0,
+      highlightElevation: 0.0,
+      disabledElevation: 0.0,
+      fillColor: fillColor,
+      padding: padding ?? defaultPadding,
       onPressed: onTap,
       child: Row(
         children: [

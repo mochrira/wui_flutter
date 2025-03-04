@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../modals/sheet.dart';
 import '../styles/colors.dart';
 
-Future<dynamic> wuiShowModalSheet({
+Future<dynamic> wuiShowModalBottomSheet({
   required BuildContext context,
-  required List<Widget>? Function(BuildContext context) actions,
-  Widget? title
+  required Widget Function(BuildContext) builder
 }) {
   return showModalBottomSheet(
     backgroundColor: WuiColors.surfaceColor,
     shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.zero)
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(8),
+        topRight: Radius.circular(8)
+      )
     ),
+    showDragHandle: true,
     context: context, 
-    builder: (BuildContext context) => WuiSheet(title: title, actions: actions(context))
+    isScrollControlled: true,
+    builder: (BuildContext context) => builder(context)
   );
 }

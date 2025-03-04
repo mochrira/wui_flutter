@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../styles/colors.dart';
+import 'package:wui_flutter/wui_flutter.dart';
 
 class WuiApp extends StatelessWidget {
 
@@ -14,20 +13,8 @@ class WuiApp extends StatelessWidget {
     return MaterialApp(
       title: title ?? "",
       home: home,
-      theme: ThemeData(
-        primaryColor: WuiColors.primaryColor,
-        colorScheme: ColorScheme(
-          brightness: Brightness.light, 
-          primary: WuiColors.primaryColor, 
-          onPrimary: Colors.white, 
-          secondary: WuiColors.primaryColor, 
-          onSecondary: Colors.white, 
-          error: WuiColors.errorColor, 
-          onError: Colors.white, 
-          surface: WuiColors.surfaceColor, 
-          onSurface: Colors.black87
-        )
-      ),
+      theme: WuiTheme.light(context),
+      darkTheme: WuiTheme.dark(context),
     );
   }
 }

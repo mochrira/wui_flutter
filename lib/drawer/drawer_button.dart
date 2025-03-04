@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../drawer/drawer_model.dart';
 import '../styles/colors.dart';
-import '../styles/typography.dart';
 
 class WuiDrawerButton extends StatelessWidget {
 
@@ -21,7 +20,7 @@ class WuiDrawerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 24),
+      padding: const EdgeInsets.only(left: 8, right: 8),
       child: RawMaterialButton(
         fillColor: isSelected ? WuiColors.drawerButtonSelectedColor : Colors.transparent,
         elevation: 0,
@@ -29,12 +28,9 @@ class WuiDrawerButton extends StatelessWidget {
         hoverElevation: 0,
         highlightElevation: 0,
         disabledElevation: 0,
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(24), 
-            bottomRight: Radius.circular(24)
-          )
+          borderRadius: BorderRadius.all(Radius.circular(12))
         ),
         onPressed: onPressed,
         child: Align(
@@ -42,12 +38,10 @@ class WuiDrawerButton extends StatelessWidget {
           child: Row(
             children: [
               ...(icon != null ? [IconTheme(data: IconThemeData(
-                color: isSelected ? WuiColors.primaryColor : WuiColors.textColor
+                color: isSelected ? WuiColors.primaryColor : Theme.of(context).colorScheme.onSurface
               ), child: icon!), const SizedBox(width: 24)] : []),
               ...(child != null ? [Expanded(child: DefaultTextStyle(
-                style: WuiTypography.drawerButtonTextStyle.copyWith(
-                  color: isSelected ? WuiColors.primaryColor : WuiColors.textColor
-                ), 
+                style: TextStyle(color: Theme.of(context).colorScheme.onSurface), 
                 child: child!))] : [])
             ],
           )

@@ -14,7 +14,7 @@ class WuiPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: WuiColors.surfaceColor,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       drawer: drawer,
       appBar: appBar,
       body: SafeArea(
