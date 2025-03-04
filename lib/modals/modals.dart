@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../styles/colors.dart';
-
 Future<dynamic> wuiShowModalBottomSheet({
   required BuildContext context,
   required Widget Function(BuildContext) builder
 }) {
   return showModalBottomSheet(
-    backgroundColor: WuiColors.surfaceColor,
+    backgroundColor: Theme.of(context).colorScheme.surface,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(8),
