@@ -49,7 +49,7 @@ class WuiTypography {
 
   static get sheetTitleStyle => defaultTextStyle.copyWith(
     fontWeight: FontWeight.w500,
-    fontSize: 18,
+    fontSize: 18.0,
     height: 1.5
   );
 
