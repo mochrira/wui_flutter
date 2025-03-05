@@ -91,11 +91,11 @@ class _WuiSelectFieldState extends State<WuiSelectField> {
           return WuiInputStyle.floatingLabelStyle;
         }),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-        border: WuiInputStyle.border,
-        enabledBorder: WuiInputStyle.border,
-        focusedBorder: WuiInputStyle.focusedBorder,
-        errorBorder: WuiInputStyle.focusedBorder,
-        disabledBorder: WuiInputStyle.border,
+        // border: WuiInputStyle.border,
+        // enabledBorder: WuiInputStyle.border,
+        // focusedBorder: WuiInputStyle.focusedBorder,
+        // errorBorder: WuiInputStyle.focusedBorder,
+        // disabledBorder: WuiInputStyle.border,
         suffixIcon: Icon(MdiIcons.chevronDown),
       ),
       onTap: () {

@@ -3,6 +3,33 @@ import 'package:wui_flutter/styles/colors.dart';
 
 import 'typography.dart';
 
+class WuiButtonStyle {
+
+  static ButtonStyle primary(BuildContext context) {
+    return ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(
+        Theme.of(context).colorScheme.onSurface
+      ),
+      foregroundColor: WidgetStatePropertyAll(
+        Theme.of(context).colorScheme.surface
+      ),
+      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8)
+      )),
+      padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(
+        vertical: 16,
+        horizontal: 24
+      )),
+      elevation: const WidgetStatePropertyAll(0),
+      textStyle: const WidgetStatePropertyAll(TextStyle(
+        fontFamily: "Inter",
+        fontWeight: FontWeight.w600
+      ))
+    );
+  }
+
+}
+
 class WuiButtonDefault {
 
   static ButtonStyle get normal => ElevatedButton.styleFrom(

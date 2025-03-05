@@ -5,8 +5,9 @@ class WuiApp extends StatelessWidget {
 
   final String? title;
   final Widget? home;
+  final Color? primaryColor;
 
-  const WuiApp({super.key, this.title, this.home});
+  const WuiApp({super.key, this.title, this.home, this.primaryColor});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class WuiApp extends StatelessWidget {
       title: title ?? "",
       home: home,
       theme: WuiTheme.light(context),
-      darkTheme: WuiTheme.dark(context),
+      darkTheme: WuiTheme.dark(context)
     );
   }
 }
