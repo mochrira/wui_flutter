@@ -26,7 +26,9 @@ class WuiTextField extends StatelessWidget {
           obscureText: obscureText ?? false,
           decoration: InputDecoration(
             hintText: hintText,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            isDense: false,
+            constraints: BoxConstraints.tight(const Size.fromHeight(48)),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
             hintStyle: WuiInputStyle.hintTextStyle(context),
             enabledBorder: WuiInputStyle.border(context),
             focusedBorder: WuiInputStyle.focusedBorder(context),

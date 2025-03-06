@@ -3,16 +3,12 @@ import 'package:wui_flutter/styles/colors.dart';
 
 import 'typography.dart';
 
+enum WuiButtonSize { small, normal, large }
+
 class WuiButtonStyle {
 
-  static ButtonStyle primary(BuildContext context) {
+  static ButtonStyle base() {
     return ButtonStyle(
-      backgroundColor: WidgetStatePropertyAll(
-        Theme.of(context).colorScheme.onSurface
-      ),
-      foregroundColor: WidgetStatePropertyAll(
-        Theme.of(context).colorScheme.surface
-      ),
       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8)
       )),
@@ -24,6 +20,30 @@ class WuiButtonStyle {
       textStyle: const WidgetStatePropertyAll(TextStyle(
         fontFamily: "Inter",
         fontWeight: FontWeight.w600
+      ))
+    );
+  }
+
+  static ButtonStyle primary(BuildContext context) {
+    return ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(
+        Theme.of(context).colorScheme.onSurface
+      ),
+      foregroundColor: WidgetStatePropertyAll(
+        Theme.of(context).colorScheme.surface
+      )
+    );
+  }
+
+  static ButtonStyle secondary(BuildContext context) {
+    return ButtonStyle();
+  }
+
+  static ButtonStyle small(BuildContext context) {
+    return const ButtonStyle(
+      padding: WidgetStatePropertyAll(EdgeInsets.symmetric(
+        vertical: 10,
+        horizontal: 16
       ))
     );
   }

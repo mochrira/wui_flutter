@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../button/button.dart';
+import 'package:wui_flutter/wui_flutter.dart';
 
 class WuiDialog extends StatelessWidget {
 
@@ -22,8 +22,8 @@ class WuiDialog extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
             child: DefaultTextStyle(
               style: (Theme.of(context).textTheme.titleMedium ?? const TextStyle()).copyWith(
-                fontSize: 20,
-                fontWeight: FontWeight.w500
+                fontSize: 18,
+                fontWeight: FontWeight.w600
               ),
               child: Container(child: Text(title ?? "")),
             ),
@@ -31,22 +31,21 @@ class WuiDialog extends StatelessWidget {
           ...(message != null ? [Container(
             padding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
             child: DefaultTextStyle(
-              style: (Theme.of(context).textTheme.bodyMedium ?? const TextStyle()).copyWith(
-                fontSize: 16
-              ),
+              style: (Theme.of(context).textTheme.bodyMedium ?? const TextStyle()),
               child: Text(message ?? "")
             )
           )] : []),
           ...(buttons != null ? [Container(
-            padding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
+            padding: const EdgeInsets.fromLTRB(24, 0, 16, 12),
             child: Row(
+              spacing: 8.0,
               mainAxisAlignment: MainAxisAlignment.end,
               children: buttons!.asMap().map(
                 (index, caption) => MapEntry(index, 
                   WuiButton(
-                    text: caption,
-                    smooth: true,
+                    style: WuiButtonStyle.base(),
                     size: WuiButtonSize.small,
+                    child: Text(caption),
                     onPressed: () {
                       Navigator.of(context).pop(index);
                     },
