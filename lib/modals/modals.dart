@@ -5,14 +5,14 @@ Future<dynamic> wuiShowModalBottomSheet({
   required Widget Function(BuildContext) builder
 }) {
   return showModalBottomSheet(
-    backgroundColor: Theme.of(context).colorScheme.surface,
+    backgroundColor: Colors.transparent,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(8),
         topRight: Radius.circular(8)
       )
     ),
-    showDragHandle: true,
+    showDragHandle: false,
     context: context, 
     isScrollControlled: true,
     builder: (BuildContext context) => builder(context)

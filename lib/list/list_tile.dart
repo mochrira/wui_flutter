@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../styles/typography.dart';
-
 class WuiListTile extends StatelessWidget {
 
   final void Function()? onTap;
@@ -42,21 +40,32 @@ class WuiListTile extends StatelessWidget {
       child: Row(
         children: [
           ...(leading != null ? [IconTheme(
-            data: const IconThemeData(
-              size: 32
+            data: Theme.of(context).iconTheme.copyWith(
+              size: 24,
             ),
             child: leading!
-          ), const SizedBox(width: 20)] : []),
+          ), const SizedBox(width: 32)] : []),
           Expanded(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              spacing: 4.0,
               children: [
                 ...(title != null ? [DefaultTextStyle(
-                  style: WuiTypography.listTileTitleStyle,
+                  style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 16.0,
+                    height: 1.15,
+                    color: Theme.of(context).colorScheme.onSurface
+                  ),
                   child: title!
                 )] : []),
                 ...(subTitle != null ? [DefaultTextStyle(
-                  style: WuiTypography.listTileSubTitleStyle,
+                   style: TextStyle(
+                    fontFamily: "Inter",
+                    fontSize: 14.0,
+                    height: 1.15,
+                    color: Theme.of(context).colorScheme.onSurface
+                  ),
                   child: subTitle!
                 )] : [])
               ],

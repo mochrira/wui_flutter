@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../styles/colors.dart';
 import '../styles/typography.dart';
 
 class WuiSliverAppBar extends StatelessWidget {
@@ -33,11 +31,21 @@ class WuiSliverAppBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ...(title != null ? [DefaultTextStyle(
-                style: WuiTypography.sliverTitleTextStyle,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.normal,
+                  fontSize: 32.0,
+                  color: Theme.of(context).colorScheme.onSurface
+                ),
                 child: title!
               )] : []),
+              const SizedBox(height: 8),
               ...(subTitle != null ? [DefaultTextStyle(
-                style: WuiTypography.sliverSubTitleTextStyle,
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w400,
+                  color: Theme.of(context).colorScheme.onSurface
+                ),
                 child: subTitle!
               )] : [])
             ],

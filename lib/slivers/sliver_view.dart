@@ -18,7 +18,7 @@ class WuiSliverView extends StatelessWidget {
       slivers: [
         ...(appBar != null ? [appBar!] : []),
         ...(body != null ? [body!] : []),
-        ...(hasFab(context) ? [const SliverPadding(padding: EdgeInsets.only(bottom: 96))] : [])
+        // ...(hasFab(context) ? [const SliverPadding(padding: EdgeInsets.only(bottom: 96))] : [])
       ],
     );
   }

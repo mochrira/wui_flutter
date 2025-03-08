@@ -7,9 +7,10 @@ class WuiSelectField<T> extends StatelessWidget {
 
   final String? labelText;
   final List<DropdownMenuEntry> entries;
+  final dynamic initialSelection;
   final ValueChanged<T>? onSelected;
 
-  const WuiSelectField({super.key, required this.entries, this.labelText, this.onSelected});
+  const WuiSelectField({super.key, required this.entries, this.labelText, this.onSelected, this.initialSelection});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class WuiSelectField<T> extends StatelessWidget {
           onSelected: (value) {
             if(onSelected != null) onSelected!(value);
           },
+          initialSelection: initialSelection,
           dropdownMenuEntries: entries,
           trailingIcon: const Icon(Icons.arrow_drop_down),
           textStyle: const TextStyle( fontFamily: "Inter", fontSize: 14 ),
