@@ -13,7 +13,7 @@ class WuiBadge extends StatelessWidget {
         color: Theme.of(context).colorScheme.onSurface,
         borderRadius: BorderRadius.circular(4)
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       child: Text(text, 
         style: TextStyle(
           color: Theme.of(context).colorScheme.surface,
