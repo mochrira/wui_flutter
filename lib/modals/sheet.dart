@@ -1,28 +1,24 @@
 import 'package:flutter/material.dart';
 
-import '../styles/typography.dart';
+class WuiBottomSheet {
 
-class WuiActionSheet extends StatelessWidget {
-
-  final BuildContext context;
-  final Widget? title;
-  final List<Widget>? actions;
-
-  const WuiActionSheet({super.key, required this.context, this.title, this.actions});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Container(
-          padding: const EdgeInsets.fromLTRB(24, 0, 24, 16),
-          child: DefaultTextStyle(style: WuiTypography.sheetTitleStyle, child: title ?? const Text(""))
+  static Future<T> action<T>(BuildContext context, {Widget? title, List<Widget>? actions}) async {
+    return await showModalBottomSheet(context: context, builder: (_) => Padding(
+        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ...(title != null ? [title] : []),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                children: actions ?? [],
+              ),
+            )
+          ],
         ),
-        ...(actions != null ? actions! : []),
-        const SizedBox(height: 16)
-      ],
-    );
+      ));
   }
+
 }
