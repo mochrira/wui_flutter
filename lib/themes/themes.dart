@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class WuiTheme {
-  static ThemeData light(BuildContext context) {
+  static ThemeData light(BuildContext context, {
+    Color? primaryColor
+  }) {
+    Color calculatedPrimaryColor = primaryColor ?? Colors.blue;
     return ThemeData(
-      
+      primaryColor: calculatedPrimaryColor,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: calculatedPrimaryColor
+      ),
       fontFamily: "Inter",
       brightness: Brightness.light,
       appBarTheme: const AppBarTheme(
@@ -17,8 +23,15 @@ class WuiTheme {
     );
   }
 
-  static ThemeData dark(BuildContext context) {
+  static ThemeData dark(BuildContext context, {
+    Color? primaryColor
+  }) {
+    Color calculatedPrimaryColor = primaryColor ?? Colors.blue;
     return ThemeData(
+      primaryColor: calculatedPrimaryColor,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: calculatedPrimaryColor
+      ),
       fontFamily: "Inter",
       brightness: Brightness.dark,
       appBarTheme: const AppBarTheme(

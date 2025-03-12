@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../styles/colors.dart';
-
 class WuiPage extends StatelessWidget {
 
   final Widget body;

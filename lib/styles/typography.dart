@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
-
 class WuiTypography {
 
   static get defaultTextStyle => const TextStyle(

@@ -21,7 +21,7 @@ class WuiMenuItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           child: Row(
-            spacing: 16,
+            spacing: 24,
             children: [
               ...(icon != null ? [icon!] : []),
               ...(child != null ? [child!] : [])

@@ -14,8 +14,8 @@ class WuiApp extends StatelessWidget {
     return MaterialApp(
       title: title ?? "",
       home: home,
-      theme: WuiTheme.light(context),
-      darkTheme: WuiTheme.dark(context)
+      theme: WuiTheme.light(context, primaryColor: primaryColor),
+      darkTheme: WuiTheme.dark(context, primaryColor: primaryColor)
     );
   }
 }

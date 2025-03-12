@@ -22,7 +22,7 @@ class WuiDrawerButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 8, right: 8),
       child: RawMaterialButton(
-        fillColor: isSelected ? WuiColors.drawerButtonSelectedColor : Colors.transparent,
+        fillColor: isSelected ? Theme.of(context).primaryColor.withAlpha(20) : Colors.transparent,
         elevation: 0,
         focusElevation: 0,
         hoverElevation: 0,
@@ -38,10 +38,10 @@ class WuiDrawerButton extends StatelessWidget {
           child: Row(
             children: [
               ...(icon != null ? [IconTheme(data: IconThemeData(
-                color: isSelected ? WuiColors.primaryColor : Theme.of(context).colorScheme.onSurface
+                color: isSelected ? Theme.of(context).primaryColor : Theme.of(context).colorScheme.onSurface
               ), child: icon!), const SizedBox(width: 24)] : []),
               ...(child != null ? [Expanded(child: DefaultTextStyle(
-                style: TextStyle(color: Theme.of(context).colorScheme.onSurface), 
+                style: TextStyle(color: isSelected ? Theme.of(context).primaryColor : Theme.of(context).colorScheme.onSurface), 
                 child: child!))] : [])
             ],
           )

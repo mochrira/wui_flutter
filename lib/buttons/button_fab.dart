@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../styles/colors.dart';
 
 class WuiButtonFab extends StatelessWidget {
 
@@ -16,11 +15,10 @@ class WuiButtonFab extends StatelessWidget {
       highlightElevation: 0,
       hoverElevation: 0,
       disabledElevation: 0,
-      backgroundColor: WuiColors.primaryColor,
       onPressed: onPressed, 
       child: icon != null ? IconTheme(
         data: IconThemeData(
-          color: WuiColors.buttonPrimaryForegroundColor,
+          color: Theme.of(context).primaryColor.computeLuminance() > 0.5 ? Colors.black : Colors.white,
         ),
         child: icon!
       ) : null,
