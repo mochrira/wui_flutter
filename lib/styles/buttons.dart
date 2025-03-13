@@ -4,6 +4,7 @@ import 'package:wui_flutter/styles/colors.dart';
 import 'typography.dart';
 
 enum WuiButtonSize { small, normal, large }
+enum WuiButtonWidth { shrink, infinity }
 
 class WuiButtonStyle {
 
