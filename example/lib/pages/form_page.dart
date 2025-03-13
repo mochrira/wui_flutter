@@ -10,7 +10,6 @@ class FormPage extends StatefulWidget {
 
 class _FormPageState extends State<FormPage> {
 
-  int? _akses;
   DateTime? _aktifHingga = DateTime.now().subtract(const Duration(days: 3));
 
   @override
@@ -44,21 +43,13 @@ class _FormPageState extends State<FormPage> {
                   obscureText: true
                 ),
                 const SizedBox(height: 24),
-                WuiSelectField(
+                const WuiSelectField(
                   labelText: "Akses",
-                  sheetTitleText: "Pilih Akses",
-                  choices: const {
-                    0: "Administrator",
-                    1: "Asesor",
-                    2: "Admin Sekolah",
-                    3: "Admin Dinas"
-                  },
-                  value: _akses,
-                  onChange: (dynamic value) {
-                    setState(() {
-                      _akses = value;
-                    });
-                  },
+                  entries: [DropdownMenuEntry(
+                    value: "ADMINISTRATOR", 
+                    label: "Administrator"
+                  )],
+                  initialSelection: "ADMINISTRATOR",
                 ),
                 const SizedBox(height: 24),
                 WuiDateField(

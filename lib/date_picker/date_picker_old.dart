@@ -379,8 +379,7 @@ class _DatePickerModeToggleButtonState extends State<_DatePickerModeToggleButton
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final TextTheme textTheme = Theme.of(context).textTheme;
-    final Color controlColor = colorScheme.onSurface.withOpacity(0.60);
+    final Color controlColor = colorScheme.onSurface.withAlpha(180);
 
     return SizedBox(
       height: _subHeaderHeight,
