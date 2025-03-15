@@ -58,7 +58,12 @@ class WuiTab<T> extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(width: 1, color: Theme.of(context).colorScheme.onSurface.withAlpha(30))
+        )
+      ),
       height: computedHeight,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
