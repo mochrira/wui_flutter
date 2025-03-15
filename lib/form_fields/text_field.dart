@@ -8,8 +8,9 @@ class WuiTextField extends StatelessWidget {
   final bool? obscureText;
   final TextEditingController? controller;
   final Icon? suffixIcon;
+  final TextInputType? keyboardType;
 
-  const WuiTextField({super.key, this.labelText, this.hintText, this.obscureText, this.controller, this.suffixIcon});
+  const WuiTextField({super.key, this.labelText, this.hintText, this.obscureText, this.controller, this.suffixIcon, this.keyboardType});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class WuiTextField extends StatelessWidget {
           controller: controller,
           style: const TextStyle( fontFamily: "Inter", fontSize: 14 ),
           obscureText: obscureText ?? false,
+          keyboardType: keyboardType,
           decoration: InputDecoration(
             hintText: hintText,
             isDense: false,

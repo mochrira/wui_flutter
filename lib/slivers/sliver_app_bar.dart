@@ -12,6 +12,8 @@ class WuiSliverAppBar extends StatefulWidget {
   final String? flexibleSubTitleText;
   final List<Widget>? actions;
 
+  final PreferredSizeWidget? bottom;
+
   const WuiSliverAppBar({super.key, 
     this.leading, 
     this.controller, 
@@ -19,7 +21,8 @@ class WuiSliverAppBar extends StatefulWidget {
     this.actions, 
     this.title, 
     this.flexibleTitleText, 
-    this.flexibleSubTitleText
+    this.flexibleSubTitleText,
+    this.bottom
   });
 
   @override
@@ -37,7 +40,12 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
 
   double expandedHeight(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return (width < 782 ? MediaQuery.of(context).size.width / 4 * 3 : 300);
+    return (width < 782 ? MediaQuery.of(context).size.width / 4 * 3 : 300) 
+      + (widget.bottom != null ? widget.bottom!.preferredSize.height + 36 : 0);
+  }
+
+  double collapsedHeight(BuildContext context) {
+    return (widget.bottom != null ? widget.bottom!.preferredSize.height + 56 : 0);
   }
 
   TextStyle flexTitleStyle(BuildContext context) {
@@ -98,9 +106,10 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
     return SliverAppBar(
       actions: [...(widget.actions != null ? widget.actions! : []), const SizedBox(width: 4)],
       toolbarHeight: 56,
-      collapsedHeight: 56,
+      collapsedHeight: collapsedHeight(context),
       expandedHeight: expandedHeight(context),
       backgroundColor: Theme.of(context).colorScheme.surface,
+      surfaceTintColor: Colors.transparent,
       pinned: true,
       leading: widget.leading,
       title: AnimatedOpacity(
@@ -108,30 +117,38 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
         duration: const Duration(milliseconds: 200),
         child: widget.title
       ),
-      flexibleSpace: Container(
-        color: Theme.of(context).colorScheme.surface,
-        padding: const EdgeInsets.only(top: 64),
-        child: Opacity(
-          opacity: _flexibleContentOpacity,
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ...(widget.flexibleTitleText != null ? [DefaultTextStyle(
-                  style: flexTitleStyle(context),
-                  child: Text(widget.flexibleTitleText!)
-                )] : []),
-                SizedBox(height: _flexibleContentSpacing),
-                ...(widget.flexibleSubTitleText != null ? [DefaultTextStyle(
-                  style: flexSubTitleStyle(context),
-                  child: Text(widget.flexibleSubTitleText!)
-                )] : [])
-              ],
-            )
+      flexibleSpace: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: Container(
+              color: Theme.of(context).colorScheme.surface,
+              padding: const EdgeInsets.only(top: 64),
+              child: Opacity(
+                opacity: _flexibleContentOpacity,
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ...(widget.flexibleTitleText != null ? [DefaultTextStyle(
+                        style: flexTitleStyle(context),
+                        child: Text(widget.flexibleTitleText!)
+                      )] : []),
+                      SizedBox(height: _flexibleContentSpacing),
+                      ...(widget.flexibleSubTitleText != null ? [DefaultTextStyle(
+                        style: flexSubTitleStyle(context),
+                        child: Text(widget.flexibleSubTitleText!)
+                      )] : [])
+                    ],
+                  )
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
+          if(widget.bottom != null) widget.bottom!
+        ],
+      )
     );
   }
 }
