@@ -18,6 +18,11 @@ class WuiSliverView extends StatelessWidget {
     return CustomScrollView(
       controller: controller,
       physics: const AlwaysScrollableScrollPhysics(),
+      // floatHeaderSlivers: true,
+      // headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+      //   return [appBar];
+      // },
+      // body: body
       slivers: [
         ...(appBar != null ? [appBar!] : []),
         ...(body != null ? [body!] : []),

@@ -45,7 +45,7 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
   }
 
   double collapsedHeight(BuildContext context) {
-    return (widget.bottom != null ? widget.bottom!.preferredSize.height + 56 : 0);
+    return (widget.bottom != null ? widget.bottom!.preferredSize.height : 0) + kToolbarHeight;
   }
 
   TextStyle flexTitleStyle(BuildContext context) {

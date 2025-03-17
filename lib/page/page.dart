@@ -6,8 +6,9 @@ class WuiPage extends StatelessWidget {
   final PreferredSizeWidget? appBar;
   final Widget? drawer;
   final Widget? fab;
+  final Widget? bottom;
 
-  const WuiPage({super.key, required this.body, this.appBar, this.drawer, this.fab});
+  const WuiPage({super.key, required this.body, this.appBar, this.drawer, this.fab, this.bottom});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class WuiPage extends StatelessWidget {
       body: SafeArea(
         child: body
       ),
+      bottomNavigationBar: bottom,
       floatingActionButton: fab != null ? Padding(
         padding: const EdgeInsets.only(bottom: 24),
         child: fab!,

@@ -10,51 +10,56 @@ class WuiDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8)
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ...(title != null ? [Container(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-            child: DefaultTextStyle(
-              style: (Theme.of(context).textTheme.titleMedium ?? const TextStyle()).copyWith(
-                fontSize: 18,
-                fontWeight: FontWeight.w600
-              ),
-              child: Container(child: Text(title ?? "")),
-            ),
-          )] : []),
-          ...(message != null ? [Container(
-            padding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
-            child: DefaultTextStyle(
-              style: (Theme.of(context).textTheme.bodyMedium ?? const TextStyle()),
-              child: Text(message ?? "")
-            )
-          )] : []),
-          ...(buttons != null ? [Container(
-            padding: const EdgeInsets.fromLTRB(24, 0, 16, 12),
-            child: Row(
-              spacing: 8.0,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: buttons!.asMap().map(
-                (index, caption) => MapEntry(index, 
-                  WuiButton(
-                    style: WuiButtonStyle.base(),
-                    size: WuiButtonSize.small,
-                    child: Text(caption),
-                    onPressed: () {
-                      Navigator.of(context).pop(index);
-                    },
-                  )
+    return Align(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 600),
+        child: Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ...(title != null ? [Container(
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+                child: DefaultTextStyle(
+                  style: (Theme.of(context).textTheme.titleMedium ?? const TextStyle()).copyWith(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600
+                  ),
+                  child: Container(child: Text(title ?? "")),
+                ),
+              )] : []),
+              ...(message != null ? [Container(
+                padding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
+                child: DefaultTextStyle(
+                  style: (Theme.of(context).textTheme.bodyMedium ?? const TextStyle()),
+                  child: Text(message ?? "")
                 )
-              ).values.toList(),
-            )
-          )] : [])
-        ],
+              )] : []),
+              ...(buttons != null ? [Container(
+                padding: const EdgeInsets.fromLTRB(24, 0, 16, 12),
+                child: Row(
+                  spacing: 8.0,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: buttons!.asMap().map(
+                    (index, caption) => MapEntry(index, 
+                      WuiButton(
+                        style: WuiButtonStyle.base(),
+                        size: WuiButtonSize.small,
+                        child: Text(caption),
+                        onPressed: () {
+                          Navigator.of(context).pop(index);
+                        },
+                      )
+                    )
+                  ).values.toList(),
+                )
+              )] : [])
+            ],
+          ),
+        ),
       ),
     );
   }
