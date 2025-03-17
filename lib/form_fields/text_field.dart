@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wui_flutter/styles/input.dart';
 
 class WuiTextField extends StatelessWidget {
@@ -9,8 +10,9 @@ class WuiTextField extends StatelessWidget {
   final TextEditingController? controller;
   final Icon? suffixIcon;
   final TextInputType? keyboardType;
-
-  const WuiTextField({super.key, this.labelText, this.hintText, this.obscureText, this.controller, this.suffixIcon, this.keyboardType});
+  final List<TextInputFormatter>? inputFormatters;
+  
+  const WuiTextField({super.key, this.labelText, this.hintText, this.obscureText, this.controller, this.suffixIcon, this.keyboardType, this.inputFormatters});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class WuiTextField extends StatelessWidget {
           style: const TextStyle( fontFamily: "Inter", fontSize: 14 ),
           obscureText: obscureText ?? false,
           keyboardType: keyboardType,
+          inputFormatters: inputFormatters,
           decoration: InputDecoration(
             hintText: hintText,
             isDense: false,
