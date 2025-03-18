@@ -8,11 +8,30 @@ class WuiTextField extends StatelessWidget {
   final String? hintText;
   final bool? obscureText;
   final TextEditingController? controller;
-  final Icon? suffixIcon;
+  final Icon? prefixIcon;
+  final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
+  final FocusNode? focusNode;
+  final void Function()? onTap;
+  final void Function(String)? onChanged;
+  final Widget? suffix;
   
-  const WuiTextField({super.key, this.labelText, this.hintText, this.obscureText, this.controller, this.suffixIcon, this.keyboardType, this.inputFormatters});
+  const WuiTextField({
+    super.key, 
+    this.labelText, 
+    this.hintText, 
+    this.obscureText, 
+    this.controller, 
+    this.prefixIcon,
+    this.suffixIcon, 
+    this.keyboardType, 
+    this.inputFormatters, 
+    this.focusNode, 
+    this.onTap,
+    this.onChanged,
+    this.suffix
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +48,9 @@ class WuiTextField extends StatelessWidget {
           obscureText: obscureText ?? false,
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
+          focusNode: focusNode,
+          onTap: onTap,
+          onChanged: onChanged,
           decoration: InputDecoration(
             hintText: hintText,
             isDense: false,
@@ -37,7 +59,9 @@ class WuiTextField extends StatelessWidget {
             hintStyle: WuiInputStyle.hintTextStyle(context),
             enabledBorder: WuiInputStyle.border(context),
             focusedBorder: WuiInputStyle.focusedBorder(context),
-            suffixIcon: suffixIcon
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
+            suffix: suffix
           ),
         ),
       ],
