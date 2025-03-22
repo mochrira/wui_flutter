@@ -29,6 +29,9 @@ class WuiListTile extends StatelessWidget {
     EdgeInsets defaultPadding = const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
 
     return RawMaterialButton(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8)
+      ),
       elevation: 0.0,
       focusElevation: 0.0,
       hoverElevation: 0.0,

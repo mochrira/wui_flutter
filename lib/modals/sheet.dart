@@ -5,6 +5,7 @@ class WuiBottomSheet {
   static Future<T> builder<T>(BuildContext context, {Widget? title, required Function(BuildContext) builder}) async {
     return await showModalBottomSheet(
       context: context, 
+      isScrollControlled: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8)
       ),
@@ -26,6 +27,7 @@ class WuiBottomSheet {
   static Future<T> action<T>(BuildContext context, {Widget? title, List<Widget>? actions}) async {
     return await showModalBottomSheet(
       context: context, 
+      isScrollControlled: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8)
       ),
