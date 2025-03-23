@@ -1,33 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../page/page.dart';
-
 class WuiSliverView extends StatelessWidget {
 
   final ScrollController? controller;
-  final Widget? appBar;
-  final Widget? body;
+  final List<Widget> children;
   
-  const WuiSliverView({super.key, this.controller, this.appBar, this.body});
-
-  hasFab(BuildContext context) {
-    return context.findAncestorWidgetOfExactType<WuiPage>()?.fab != null;
-  }
+  const WuiSliverView({super.key, this.controller, required this.children});
 
   Widget main(BuildContext context) {
     return CustomScrollView(
       controller: controller,
       physics: const AlwaysScrollableScrollPhysics(),
-      // floatHeaderSlivers: true,
-      // headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-      //   return [appBar];
-      // },
-      // body: body
-      slivers: [
-        ...(appBar != null ? [appBar!] : []),
-        ...(body != null ? [body!] : []),
-        // ...(hasFab(context) ? [const SliverPadding(padding: EdgeInsets.only(bottom: 96))] : [])
-      ],
+      slivers: children,
     );
   }
 
@@ -38,16 +22,14 @@ class WuiSliverView extends StatelessWidget {
 
   static withRefreshIndicator({
     required Future<void> Function() onRefresh,
-    ScrollController? controller,
-    Widget? appBar,
-    Widget? body
+    required List<Widget> children,
+    ScrollController? controller
   }) {
     return RefreshIndicator(
       onRefresh: onRefresh,
       child: WuiSliverView(
         controller: controller,
-        appBar: appBar,
-        body: body,
+        children: children,
       ),
     );
   }
