@@ -37,7 +37,11 @@ class WuiButtonStyle {
   }
 
   static ButtonStyle secondary(BuildContext context) {
-    return ButtonStyle();
+    return ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(
+        Theme.of(context).colorScheme.onSurface.withAlpha(10)
+      )
+    );
   }
 
   static ButtonStyle small(BuildContext context) {
