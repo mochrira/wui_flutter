@@ -42,7 +42,7 @@ export 'slivers/sliver_app_bar.dart';
 export 'slivers/sliver_list.dart';
 export 'slivers/sliver_view.dart';
 
-export 'modals/modals.dart';
+export 'modals/modal.dart';
 
 export 'buttons/button.dart';
 export 'buttons/button_fab.dart';

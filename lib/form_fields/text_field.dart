@@ -16,6 +16,7 @@ class WuiTextField extends StatelessWidget {
   final void Function()? onTap;
   final void Function(String)? onChanged;
   final Widget? suffix;
+  final TextAlign? textAlign;
   
   const WuiTextField({
     super.key, 
@@ -30,7 +31,8 @@ class WuiTextField extends StatelessWidget {
     this.focusNode, 
     this.onTap,
     this.onChanged,
-    this.suffix
+    this.suffix,
+    this.textAlign
   });
 
   @override
@@ -51,6 +53,7 @@ class WuiTextField extends StatelessWidget {
           focusNode: focusNode,
           onTap: onTap,
           onChanged: onChanged,
+          textAlign: textAlign ?? TextAlign.left,
           decoration: InputDecoration(
             hintText: hintText,
             isDense: false,

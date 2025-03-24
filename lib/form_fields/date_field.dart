@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:wui_flutter/date_picker/date_picker.dart';
-import 'package:wui_flutter/modals/modals.dart';
+import 'package:wui_flutter/modals/modal.dart';
+import 'package:wui_flutter/modals/sheet.dart';
 import 'package:wui_flutter/styles/input.dart';
 
 class WuiDateField extends StatefulWidget {
@@ -56,8 +57,8 @@ class _WuiDateFieldState extends State<WuiDateField> {
         suffixIcon: Icon(MdiIcons.calendar),
       ),
       onTap: () async {
-        DateTime? value = await wuiShowModalBottomSheet(
-          context: context, 
+        DateTime? value = await WuiBottomSheet.builder(
+          context, 
           builder: (BuildContext context) {
             return WuiDatePicker(
               selectedDate: _selectedDate ?? widget.initialDate,

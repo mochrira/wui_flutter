@@ -44,7 +44,7 @@ class WuiTab<T> extends StatelessWidget implements PreferredSizeWidget {
           right: computedItemPadding.right,
           child: Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).colorScheme.onSurface,
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(3), topRight: Radius.circular(3)
               )
