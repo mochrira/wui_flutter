@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  material_design_icons_flutter:
   intl:
 
 dev_dependencies:

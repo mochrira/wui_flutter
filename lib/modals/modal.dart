@@ -18,7 +18,7 @@ class WuiModal extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.min,
       children: [
         if(header != null) Padding(
           padding: const EdgeInsets.fromLTRB(24, 8, 24, 20),

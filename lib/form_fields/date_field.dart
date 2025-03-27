@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:wui_flutter/date_picker/date_picker.dart';
 import 'package:wui_flutter/modals/modal.dart';
 import 'package:wui_flutter/modals/sheet.dart';
@@ -54,7 +53,7 @@ class _WuiDateFieldState extends State<WuiDateField> {
         // focusedBorder: WuiInputStyle.focusedBorder,
         // errorBorder: WuiInputStyle.focusedBorder,
         // disabledBorder: WuiInputStyle.border,
-        suffixIcon: Icon(MdiIcons.calendar),
+        // suffixIcon: Icon(MdiIcons.calendar),
       ),
       onTap: () async {
         DateTime? value = await WuiBottomSheet.builder(
