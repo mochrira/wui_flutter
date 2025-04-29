@@ -7,8 +7,8 @@ class WuiBottomSheet {
     double? maxWidth
   }) async {
     return await showModalBottomSheet(
-      showDragHandle: true,
       context: context, 
+      showDragHandle: true,
       isScrollControlled: true,
       useSafeArea: true,
       shape: const RoundedRectangleBorder(

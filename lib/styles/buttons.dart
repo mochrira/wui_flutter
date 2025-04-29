@@ -8,6 +8,24 @@ enum WuiButtonWidth { shrink, infinity }
 
 class WuiButtonStyle {
 
+  static ButtonStyle ghost() {
+    return ButtonStyle(
+      backgroundColor: WidgetStatePropertyAll(Colors.transparent),
+      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8)
+      )),
+      padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(
+        vertical: 16,
+        horizontal: 24
+      )),
+      elevation: const WidgetStatePropertyAll(0),
+      textStyle: const WidgetStatePropertyAll(TextStyle(
+        fontFamily: "Inter",
+        fontWeight: FontWeight.w600
+      ))
+    );
+  }
+
   static ButtonStyle base() {
     return ButtonStyle(
       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
