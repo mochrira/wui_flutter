@@ -5,8 +5,9 @@ class WuiAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final Widget? title;
   final List<Widget>? actions;
+  final PreferredSizeWidget? bottom;
 
-  const WuiAppBar({super.key, this.leading, this.title, this.actions});
+  const WuiAppBar({super.key, this.leading, this.title, this.actions, this.bottom});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +15,13 @@ class WuiAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Theme.of(context).colorScheme.surface,
       leading: leading,
       title: title,
-      actions: actions
+      actions: actions,
+      bottom: bottom
     );
   }
   
   @override
-  Size get preferredSize => const Size.fromHeight(64);
+  Size get preferredSize {
+    return Size.fromHeight((bottom?.preferredSize.height ?? 0) + 56);
+  }
 }

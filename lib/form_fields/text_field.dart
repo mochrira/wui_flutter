@@ -4,8 +4,10 @@ import 'package:wui_flutter/styles/input.dart';
 
 class WuiTextField extends StatelessWidget {
 
+  final TextStyle? textStyle;
   final String? labelText;
   final String? hintText;
+  final TextStyle? hintStyle;
   final bool? obscureText;
   final TextEditingController? controller;
   final Icon? prefixIcon;
@@ -17,11 +19,16 @@ class WuiTextField extends StatelessWidget {
   final void Function(String)? onChanged;
   final Widget? suffix;
   final TextAlign? textAlign;
+  final InputBorder? enabledBorder;
+  final InputBorder? focusedBorder;
+  final EdgeInsets? contentPadding;
   
   const WuiTextField({
     super.key, 
+    this.textStyle,
     this.labelText, 
     this.hintText, 
+    this.hintStyle,
     this.obscureText, 
     this.controller, 
     this.prefixIcon,
@@ -32,7 +39,10 @@ class WuiTextField extends StatelessWidget {
     this.onTap,
     this.onChanged,
     this.suffix,
-    this.textAlign
+    this.textAlign,
+    this.enabledBorder,
+    this.focusedBorder,
+    this.contentPadding
   });
 
   @override
@@ -46,7 +56,7 @@ class WuiTextField extends StatelessWidget {
         ),
         TextField(
           controller: controller,
-          style: const TextStyle( fontFamily: "Inter", fontSize: 14 ),
+          style: TextStyle( fontFamily: "Inter", fontSize: 14 ).merge(this.textStyle),
           obscureText: obscureText ?? false,
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
@@ -58,10 +68,10 @@ class WuiTextField extends StatelessWidget {
             hintText: hintText,
             isDense: false,
             constraints: BoxConstraints.tight(const Size.fromHeight(48)),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-            hintStyle: WuiInputStyle.hintTextStyle(context),
-            enabledBorder: WuiInputStyle.border(context),
-            focusedBorder: WuiInputStyle.focusedBorder(context),
+            contentPadding: this.contentPadding ?? EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+            hintStyle: WuiInputStyle.hintTextStyle(context).merge(this.hintStyle),
+            enabledBorder: this.enabledBorder ?? WuiInputStyle.border(context),
+            focusedBorder: this.focusedBorder ?? WuiInputStyle.focusedBorder(context),
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             suffix: suffix

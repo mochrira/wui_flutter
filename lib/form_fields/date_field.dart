@@ -68,7 +68,6 @@ class _WuiDateFieldState extends State<WuiDateField> {
             );
           }
         );
-        print(value);
         if(widget.onChange != null) widget.onChange!(value);
       }
     );
