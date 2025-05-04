@@ -10,6 +10,7 @@ class WuiTextField extends StatelessWidget {
   final TextStyle? hintStyle;
   final bool? obscureText;
   final TextEditingController? controller;
+  final Widget? prefix;
   final Icon? prefixIcon;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
@@ -42,7 +43,8 @@ class WuiTextField extends StatelessWidget {
     this.textAlign,
     this.enabledBorder,
     this.focusedBorder,
-    this.contentPadding
+    this.contentPadding,
+    this.prefix
   });
 
   @override
@@ -56,7 +58,7 @@ class WuiTextField extends StatelessWidget {
         ),
         TextField(
           controller: controller,
-          style: TextStyle( fontFamily: "Inter", fontSize: 14 ).merge(this.textStyle),
+          style: const TextStyle( fontFamily: "Inter", fontSize: 14 ).merge(textStyle),
           obscureText: obscureText ?? false,
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
@@ -68,10 +70,11 @@ class WuiTextField extends StatelessWidget {
             hintText: hintText,
             isDense: false,
             constraints: BoxConstraints.tight(const Size.fromHeight(48)),
-            contentPadding: this.contentPadding ?? EdgeInsets.symmetric(horizontal: 16, vertical: 0),
-            hintStyle: WuiInputStyle.hintTextStyle(context).merge(this.hintStyle),
-            enabledBorder: this.enabledBorder ?? WuiInputStyle.border(context),
-            focusedBorder: this.focusedBorder ?? WuiInputStyle.focusedBorder(context),
+            contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+            hintStyle: WuiInputStyle.hintTextStyle(context).merge(hintStyle),
+            enabledBorder: enabledBorder ?? WuiInputStyle.border(context),
+            focusedBorder: focusedBorder ?? WuiInputStyle.focusedBorder(context),
+            prefix: prefix,
             prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             suffix: suffix
