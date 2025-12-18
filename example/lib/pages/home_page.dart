@@ -31,32 +31,31 @@ class _HomePageState extends State<HomePage> {
           Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FormPage()));
         }
       ),
-      body: WuiSliverView.withRefreshIndicator(
-        onRefresh: () async {
-          
-        },
-        appBar: WuiSliverAppBar(
-          flexibleTitleText: "Dashboard",
-          flexibleSubTitleText: "50 Pengguna",
-          actions: [IconButton(
-            onPressed: () {}, 
-            icon: Icon(MdiIcons.magnify)
-          )],
-        ),
-        body: WuiSliverList(
-          count: 50,
-          builder: (BuildContext context, int index) {
-            return WuiListTile(
-              onTap: () async {
-                
-              },
-              leading: Icon(MdiIcons.accountCircle),
-              title: Text("Moch. Rizal Rachmadani $index"),
-              subTitle: const Text("mochrira@gmail.com"),
-              trailing: Icon(MdiIcons.dotsVertical),
-            );
-          }
-        ),
+      body: WuiSliverView(
+        children: [
+          WuiSliverAppBar(
+            flexibleTitleText: "Dashboard",
+            flexibleSubTitleText: "50 Pengguna",
+            actions: [IconButton(
+              onPressed: () {}, 
+              icon: Icon(MdiIcons.magnify)
+            )],
+          ),
+          WuiSliverList(
+            count: 50,
+            builder: (BuildContext context, int index) {
+              return WuiListTile(
+                onTap: () async {
+                  
+                },
+                leading: Icon(MdiIcons.accountCircle),
+                title: Text("Moch. Rizal Rachmadani $index"),
+                subTitle: const Text("mochrira@gmail.com"),
+                trailing: Icon(MdiIcons.dotsVertical),
+              );
+            }
+          )
+        ]
       )
     );
   }
