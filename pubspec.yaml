@@ -1,7 +1,7 @@
 name: wui_flutter
 description: "A new wajek wui package for flutter project"
 version: 0.0.1
-homepage:
+homepage: https://github.com/mochrira/wui_flutter
 
 environment:
   sdk: ^3.5.2
