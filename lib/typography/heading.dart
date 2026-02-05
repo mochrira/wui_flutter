@@ -7,7 +7,7 @@ class WuiTextHeading1 extends StatelessWidget {
   final TextStyle? textStyle;
   final TextAlign? textAlign;
 
-  const WuiTextHeading1(String text, { super.key, this.textStyle, this.textAlign }) : text = text;
+  const WuiTextHeading1(String this.text, { super.key, this.textStyle, this.textAlign });
 
   double _fontSize(BuildContext context) {
     double vw = MediaQuery.of(context).size.width;
@@ -34,8 +34,7 @@ class WuiTextHeading2 extends StatelessWidget {
   final TextStyle? textStyle;
   final TextAlign? textAlign;
 
-  const WuiTextHeading2(String text, { super.key, this.textStyle, this.textAlign }) 
-    : text = text;
+  const WuiTextHeading2(String this.text, { super.key, this.textStyle, this.textAlign });
 
   double _fontSize(BuildContext context) {
     double vw = MediaQuery.of(context).size.width;
@@ -62,8 +61,7 @@ class WuiTextHeading3 extends StatelessWidget {
   final TextStyle? textStyle;
   final TextAlign? textAlign;
 
-  const WuiTextHeading3(String text, { super.key, this.textStyle, this.textAlign }) 
-    : text = text;
+  const WuiTextHeading3(String this.text, { super.key, this.textStyle, this.textAlign });
 
   double _fontSize(BuildContext context) {
     double vw = MediaQuery.of(context).size.width;
@@ -90,8 +88,7 @@ class WuiTextHeading4 extends StatelessWidget {
   final TextStyle? textStyle;
   final TextAlign? textAlign;
 
-  const WuiTextHeading4(String text, { super.key, this.textStyle, this.textAlign }) 
-    : text = text;
+  const WuiTextHeading4(String this.text, { super.key, this.textStyle, this.textAlign });
 
   double _fontSize(BuildContext context) {
     double vw = MediaQuery.of(context).size.width;
@@ -118,8 +115,7 @@ class WuiTextHeading5 extends StatelessWidget {
   final TextStyle? textStyle;
   final TextAlign? textAlign;
 
-  const WuiTextHeading5(String text, { super.key, this.textStyle, this.textAlign }) 
-    : text = text;
+  const WuiTextHeading5(String this.text, { super.key, this.textStyle, this.textAlign });
 
   double _fontSize(BuildContext context) {
     double vw = MediaQuery.of(context).size.width;

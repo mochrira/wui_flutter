@@ -28,7 +28,7 @@ class WuiDialog extends StatelessWidget {
                     fontSize: 18,
                     fontWeight: FontWeight.w600
                   ),
-                  child: Container(child: Text(title ?? "")),
+                  child: Text(title ?? ""),
                 ),
               )] : []),
               ...(message != null ? [Container(

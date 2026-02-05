@@ -10,7 +10,7 @@ class WuiButtonStyle {
 
   static ButtonStyle ghost() {
     return ButtonStyle(
-      backgroundColor: WidgetStatePropertyAll(Colors.transparent),
+      backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
       shape: WidgetStatePropertyAll(RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8)
       )),

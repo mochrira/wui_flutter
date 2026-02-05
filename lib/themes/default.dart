@@ -7,7 +7,7 @@ class WuiDefaultTheme {
       scaffoldBackgroundColor: Colors.white,
       primarySwatch: primarySwatch ?? Colors.blue,
       appBarTheme: Theme.of(context).appBarTheme.copyWith(
-        color: Colors.white
+        backgroundColor: Colors.white
       ),
       textTheme: Theme.of(context).textTheme.copyWith(
         bodyLarge: Theme.of(context).textTheme.bodyLarge?.copyWith(

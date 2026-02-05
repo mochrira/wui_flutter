@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:wui_flutter/date_picker/date_picker.dart';
-import 'package:wui_flutter/modals/modal.dart';
 import 'package:wui_flutter/modals/sheet.dart';
 import 'package:wui_flutter/styles/input.dart';
 
