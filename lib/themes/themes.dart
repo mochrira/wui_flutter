@@ -26,7 +26,7 @@ class WuiTheme {
       colorScheme: ColorScheme.light(
         surface: Colors.grey.shade100,
         onSurface: Colors.grey.shade700,
-        primary: Colors.grey.shade900,
+        primary: calculatedPrimaryColor,
         onPrimary: Colors.grey.shade400,
         outline: Colors.grey.shade400
       )
@@ -50,7 +50,7 @@ class WuiTheme {
       colorScheme: ColorScheme.dark(
         surface: Colors.grey.shade900,
         onSurface: Colors.grey.shade400,
-        primary: Colors.grey.shade100,
+        primary: calculatedPrimaryColor,
         onPrimary: Colors.grey.shade700,
         outline: Colors.black38
       )

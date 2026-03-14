@@ -29,9 +29,6 @@ class WuiListTile extends StatelessWidget {
     EdgeInsets defaultPadding = const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
 
     return RawMaterialButton(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8)
-      ),
       elevation: 0.0,
       focusElevation: 0.0,
       hoverElevation: 0.0,
@@ -47,7 +44,7 @@ class WuiListTile extends StatelessWidget {
               size: 24,
             ),
             child: leading!
-          ), const SizedBox(width: 32)] : []),
+          ), const SizedBox(width: 16)] : []),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
