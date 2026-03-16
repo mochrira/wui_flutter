@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 
 class WuiTheme {
   static AppBarTheme appBarTheme(BuildContext context) {
-    return AppBarTheme(
-      actionsPadding: const EdgeInsets.only(right: 8),
-      titleTextStyle: const TextStyle(
+    return const AppBarTheme(
+      actionsPadding: EdgeInsets.only(right: 8),
+      titleTextStyle: TextStyle(
         fontSize: 18
       )
     );
