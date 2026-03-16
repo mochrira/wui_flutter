@@ -8,6 +8,40 @@ enum WuiButtonWidth { shrink, infinity }
 
 class WuiButtonStyle {
 
+  static ButtonStyle normal(BuildContext context) {
+    return ButtonStyle(
+      backgroundColor: WidgetStateProperty.fromMap({
+        WidgetState.any: Colors.transparent,
+        WidgetState.hovered: Theme.of(context).colorScheme.onSurface.withAlpha(100)
+      }),
+      overlayColor: WidgetStateProperty.fromMap({
+        WidgetState.hovered: Theme.of(context).colorScheme.onSurface.withAlpha(25),
+        WidgetState.pressed: Theme.of(context).colorScheme.onSurface.withAlpha(50)
+      }),
+      foregroundColor: WidgetStateProperty.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onSurface.withAlpha(200),
+        WidgetState.hovered: Theme.of(context).colorScheme.onSurface
+      })
+    );
+  }
+
+  static ButtonStyle primary(BuildContext context) {
+    return ButtonStyle(
+      backgroundColor: WidgetStateProperty.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.primary.withAlpha(25),
+        WidgetState.hovered: Theme.of(context).colorScheme.primary.withAlpha(100)
+      }),
+      overlayColor: WidgetStateProperty.fromMap({
+        WidgetState.hovered: Theme.of(context).colorScheme.primary.withAlpha(25),
+        WidgetState.pressed: Theme.of(context).colorScheme.primary.withAlpha(50)
+      }),
+      foregroundColor: WidgetStateProperty.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.primary.withAlpha(200),
+        WidgetState.hovered: Theme.of(context).colorScheme.primary
+      })
+    );
+  }
+
   static ButtonStyle ghost() {
     return ButtonStyle(
       backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
@@ -43,16 +77,7 @@ class WuiButtonStyle {
     );
   }
 
-  static ButtonStyle primary(BuildContext context) {
-    return ButtonStyle(
-      backgroundColor: WidgetStatePropertyAll(
-        Theme.of(context).colorScheme.onSurface
-      ),
-      foregroundColor: WidgetStatePropertyAll(
-        Theme.of(context).colorScheme.surface
-      )
-    );
-  }
+  
 
   static ButtonStyle secondary(BuildContext context) {
     return ButtonStyle(
@@ -70,6 +95,8 @@ class WuiButtonStyle {
       ))
     );
   }
+
+  
 
 }
 

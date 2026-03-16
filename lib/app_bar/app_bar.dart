@@ -12,6 +12,13 @@ class WuiAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      shape: Border(
+        bottom: BorderSide(
+          style: BorderStyle.solid,
+          width: 1,
+          color: Theme.of(context).colorScheme.outline
+        )
+      ),
       backgroundColor: Theme.of(context).colorScheme.surface,
       leading: leading,
       title: title,

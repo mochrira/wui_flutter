@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class WuiTheme {
-  static AppBarTheme appBarTheme = const AppBarTheme(
-    actionsPadding: EdgeInsets.only(right: 8),
-    titleTextStyle: TextStyle(
-      fontSize: 18
-    )
-  );
+  static AppBarTheme appBarTheme(BuildContext context) {
+    return AppBarTheme(
+      actionsPadding: const EdgeInsets.only(right: 8),
+      titleTextStyle: const TextStyle(
+        fontSize: 18
+      )
+    );
+  }
 
   static ThemeData light(BuildContext context, {
     Color? primaryColor
@@ -20,7 +22,7 @@ class WuiTheme {
       ),
       fontFamily: "Inter",
       brightness: Brightness.light,
-      appBarTheme: appBarTheme.copyWith(
+      appBarTheme: appBarTheme(context).copyWith(
         systemOverlayStyle: SystemUiOverlayStyle.dark
       ),
       colorScheme: ColorScheme.light(
@@ -44,7 +46,7 @@ class WuiTheme {
       ),
       fontFamily: "Inter",
       brightness: Brightness.dark,
-      appBarTheme: appBarTheme.copyWith(
+      appBarTheme: appBarTheme(context).copyWith(
         systemOverlayStyle: SystemUiOverlayStyle.light
       ),
       colorScheme: ColorScheme.dark(
