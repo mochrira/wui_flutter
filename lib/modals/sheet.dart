@@ -50,9 +50,10 @@ class WuiBottomSheet {
   }
 
 
-  static Future<T> action<T>(BuildContext context, {Widget? title, List<Widget>? actions}) async {
+  static Future<T> action<T>(BuildContext context, {Widget? title, List<Widget>? actions, bool? useRootNavigator}) async {
     return await showModalBottomSheet(
       context: context, 
+      useRootNavigator: useRootNavigator ?? false,
       isScrollControlled: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8)
