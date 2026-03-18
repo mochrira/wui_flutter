@@ -8,10 +8,11 @@ class WuiSliverAppBar extends StatefulWidget {
   final Widget? title;
   final bool? alwaysShowTitle;
 
-  final String? flexibleTitleText;
-  final String? flexibleSubTitleText;
+  final String? flexibleTitleText; // deprecated
+  final String? flexibleSubTitleText; // deprecated
   final List<Widget>? actions;
 
+  final PreferredSizeWidget? flexibleSpace;
   final PreferredSizeWidget? bottom;
 
   const WuiSliverAppBar({super.key, 
@@ -22,6 +23,8 @@ class WuiSliverAppBar extends StatefulWidget {
     this.title, 
     this.flexibleTitleText, 
     this.flexibleSubTitleText,
+
+    this.flexibleSpace,
     this.bottom
   });
 
@@ -39,13 +42,12 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
   }
 
   double expandedHeight(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    return (width < 782 ? MediaQuery.of(context).size.width / 4 * 3 : 300) 
-      + (widget.bottom != null ? widget.bottom!.preferredSize.height + 36 : 0);
+    double flexHeight = widget.flexibleSpace?.preferredSize.height ?? 0;
+    return kToolbarHeight + flexHeight;
   }
 
   double collapsedHeight(BuildContext context) {
-    return (widget.bottom != null ? widget.bottom!.preferredSize.height : 0) + kToolbarHeight;
+    return kToolbarHeight + 8;
   }
 
   TextStyle flexTitleStyle(BuildContext context) {
@@ -97,15 +99,13 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
       setState(() {
         _flexibleContentOpacity = opacity;
       });
-      // print('scrollPos: ${widget.controller?.position.pixels}, opacity: $opacity');
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      actions: [...(widget.actions != null ? widget.actions! : []), const SizedBox(width: 4)],
-      toolbarHeight: 56,
+      actions: widget.actions,
       collapsedHeight: collapsedHeight(context),
       expandedHeight: expandedHeight(context),
       backgroundColor: Theme.of(context).colorScheme.surface,
@@ -117,38 +117,15 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
         duration: const Duration(milliseconds: 200),
         child: widget.title
       ),
-      flexibleSpace: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: Container(
-              color: Theme.of(context).colorScheme.surface,
-              padding: const EdgeInsets.only(top: 64),
-              child: Opacity(
-                opacity: _flexibleContentOpacity,
-                child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      ...(widget.flexibleTitleText != null ? [DefaultTextStyle(
-                        style: flexTitleStyle(context),
-                        child: Text(widget.flexibleTitleText!)
-                      )] : []),
-                      SizedBox(height: _flexibleContentSpacing),
-                      ...(widget.flexibleSubTitleText != null ? [DefaultTextStyle(
-                        style: flexSubTitleStyle(context),
-                        child: Text(widget.flexibleSubTitleText!)
-                      )] : [])
-                    ],
-                  )
-                ),
-              ),
-            ),
-          ),
-          if(widget.bottom != null) widget.bottom!
-        ],
-      )
+      flexibleSpace: AnimatedOpacity(
+        opacity: _flexibleContentOpacity,
+        duration: const Duration(milliseconds: 200),
+        child: Padding(
+          padding: EdgeInsets.only(top: kToolbarHeight, bottom: widget.bottom?.preferredSize.height ?? 0),
+          child: widget.flexibleSpace,
+        ),
+      ),
+      bottom: widget.bottom,
     );
   }
 }

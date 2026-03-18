@@ -18,6 +18,8 @@ library wui;
 // export './fab/fab.dart';
 
 // start new era
+export 'utils/responsive.dart';
+
 export 'themes/themes.dart';
 
 // export 'styles/theme.dart';
@@ -27,6 +29,7 @@ export 'styles/buttons.dart';
 
 export 'app/app.dart';
 export 'page/page.dart';
+export 'page/container.dart';
 
 export 'app_bar/app_bar.dart';
 
