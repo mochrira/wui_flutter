@@ -33,6 +33,8 @@ class WuiSliverAppBar extends StatefulWidget {
 }
 
 class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
+
+  Size? _lastSize;
   
   final double _flexibleContentSpacing = 8.0;
   double _flexibleContentOpacity = 1.0;
@@ -43,7 +45,8 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
 
   double expandedHeight(BuildContext context) {
     double flexHeight = widget.flexibleSpace?.preferredSize.height ?? 0;
-    return kToolbarHeight + flexHeight;
+    double bottomHeight = widget.bottom?.preferredSize.height ?? 0;
+    return kToolbarHeight + flexHeight + bottomHeight;
   }
 
   double collapsedHeight(BuildContext context) {
@@ -103,6 +106,19 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    final size = MediaQuery.of(context).size;
+    if (_lastSize != size) {
+      _lastSize = size;
+      setState(() {
+        // triggere rebuild ketika layout (ukuran/orientasi) berubah
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       actions: widget.actions,
@@ -121,7 +137,10 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
         opacity: _flexibleContentOpacity,
         duration: const Duration(milliseconds: 200),
         child: Padding(
-          padding: EdgeInsets.only(top: kToolbarHeight, bottom: widget.bottom?.preferredSize.height ?? 0),
+          padding: EdgeInsets.only(
+            top: 56, 
+            bottom: widget.bottom != null ? widget.bottom!.preferredSize.height : 0
+          ),
           child: widget.flexibleSpace,
         ),
       ),

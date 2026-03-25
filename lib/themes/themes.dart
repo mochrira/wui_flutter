@@ -15,6 +15,9 @@ class WuiTheme {
     Color? primaryColor
   }) {
     Color calculatedPrimaryColor = primaryColor ?? Colors.blue;
+    Color onPrimaryColor = calculatedPrimaryColor.computeLuminance() > 0.5
+        ? Colors.black
+        : Colors.white;
     return ThemeData(
       primaryColor: calculatedPrimaryColor,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -29,7 +32,7 @@ class WuiTheme {
         surface: Colors.grey.shade100,
         onSurface: Colors.grey.shade700,
         primary: calculatedPrimaryColor,
-        onPrimary: Colors.grey.shade400,
+        onPrimary: onPrimaryColor,
         outline: Colors.grey.shade400
       )
     );
@@ -39,6 +42,10 @@ class WuiTheme {
     Color? primaryColor
   }) {
     Color calculatedPrimaryColor = primaryColor ?? Colors.blue;
+    Color onPrimaryColor = calculatedPrimaryColor.computeLuminance() > 0.5
+        ? Colors.black
+        : Colors.white;
+
     return ThemeData(
       primaryColor: calculatedPrimaryColor,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -53,7 +60,7 @@ class WuiTheme {
         surface: Colors.grey.shade900,
         onSurface: Colors.grey.shade400,
         primary: calculatedPrimaryColor,
-        onPrimary: Colors.grey.shade700,
+        onPrimary: onPrimaryColor,
         outline: Colors.black38
       )
     );

@@ -38,13 +38,9 @@ class WuiListTile extends StatelessWidget {
       padding: padding ?? defaultPadding,
       onPressed: onTap,
       child: Row(
+        spacing: 24,
         children: [
-          ...(leading != null ? [IconTheme(
-            data: Theme.of(context).iconTheme.copyWith(
-              size: 24,
-            ),
-            child: leading!
-          ), const SizedBox(width: 16)] : []),
+          if(leading != null) leading!,
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

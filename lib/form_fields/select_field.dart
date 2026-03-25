@@ -29,7 +29,6 @@ class WuiSelectField<T> extends StatelessWidget {
           dropdownMenuEntries: entries,
           trailingIcon: const Icon(Icons.arrow_drop_down),
           textStyle: const TextStyle( fontFamily: "Inter", fontSize: 14 ),
-          width: double.infinity,
           inputDecorationTheme: InputDecorationTheme(
             isDense: true,
             constraints: BoxConstraints.tight(const Size.fromHeight(48)),

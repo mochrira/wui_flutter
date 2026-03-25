@@ -30,22 +30,13 @@ class WuiBottomSheet {
   static Future<T> builder<T>(BuildContext context, {Widget? title, required Function(BuildContext) builder}) async {
     return await showModalBottomSheet(
       context: context, 
+      useRootNavigator: true,
       isScrollControlled: true,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8)
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16))
       ),
       showDragHandle: true,
-      builder: (context) => Padding(
-        padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ...(title != null ? [title] : []),
-            builder(context)
-          ],
-        ),
-      )
+      builder: (context) => SafeArea(child: builder(context))
     );
   }
 

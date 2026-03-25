@@ -42,6 +42,34 @@ class WuiButtonStyle {
     );
   }
 
+  static ButtonStyle normalFilled(BuildContext context) {
+    return ButtonStyle(
+      backgroundColor: WidgetStateProperty.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onSurface.withAlpha(25)
+      }),
+      foregroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onSurface
+      }),
+      overlayColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onSurface.withAlpha(50)
+      })
+    );
+  }
+
+  static ButtonStyle primaryFilled(BuildContext context) {
+    return ButtonStyle(
+      backgroundColor: WidgetStateProperty.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.primary
+      }),
+      foregroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onPrimary
+      }),
+      overlayColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onPrimary.withAlpha(25)
+      })
+    );
+  }
+
   static ButtonStyle ghost() {
     return ButtonStyle(
       backgroundColor: const WidgetStatePropertyAll(Colors.transparent),

@@ -57,23 +57,20 @@ class WuiTab<T> extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Transform.translate(
-      offset: const Offset(-12, 0),
-      child: Container(
-        constraints: const BoxConstraints(
-          maxWidth: double.infinity
-        ),
-        width: double.infinity,
-        height: computedHeight,
-        child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
-            children: items.map((entry) => _renderItem(context, entry)).toList(),
-          ),
+    return Container(
+      constraints: const BoxConstraints(
+        maxWidth: double.infinity
+      ),
+      width: double.infinity,
+      height: computedHeight,
+      child: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: items.map((entry) => _renderItem(context, entry)).toList(),
         ),
       ),
     );

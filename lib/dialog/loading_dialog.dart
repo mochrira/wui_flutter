@@ -18,7 +18,7 @@ class WuiLoadingDialog {
 
   static WuiLoadingDialogController open(BuildContext context) {
 
-    final overlayState = Overlay.of(context);
+    final overlayState = Overlay.of(context, rootOverlay: true);
 
     final overlay = OverlayEntry(builder: (context) {
       return Material(
