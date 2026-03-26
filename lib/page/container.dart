@@ -5,26 +5,30 @@ class WuiPageContainer extends StatelessWidget {
 
   final Widget child;
   final EdgeInsets? padding;
+  final double? maxWidth;
 
-  const WuiPageContainer({super.key, required this.child, this.padding});
+  const WuiPageContainer({super.key, required this.child, this.padding, this.maxWidth});
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       double maxWidth;
-
-      if(WuiResponsive.isBreakpointUp(context, WuiBreakpoint.xxl)) {
-        maxWidth = 1320;
-      } else if(WuiResponsive.isBreakpointUp(context, WuiBreakpoint.xl)) {
-        maxWidth = 1140;
-      } else if(WuiResponsive.isBreakpointUp(context, WuiBreakpoint.lg)) {
-        maxWidth = 960;
-      } else if(WuiResponsive.isBreakpointUp(context, WuiBreakpoint.md)) {
-        maxWidth = 720;
-      } else if(WuiResponsive.isBreakpointUp(context, WuiBreakpoint.sm)) {
-        maxWidth = 540;
+      if(this.maxWidth != null) {
+        maxWidth = this.maxWidth!;
       } else {
-        maxWidth = constraints.maxWidth;
+        if(WuiResponsive.isConstraintsUp(constraints, WuiBreakpoint.xxl)) {
+          maxWidth = 1320;
+        } else if(WuiResponsive.isConstraintsUp(constraints, WuiBreakpoint.xl)) {
+          maxWidth = 1140;
+        } else if(WuiResponsive.isConstraintsUp(constraints, WuiBreakpoint.lg)) {
+          maxWidth = 960;
+        } else if(WuiResponsive.isConstraintsUp(constraints, WuiBreakpoint.md)) {
+          maxWidth = 720;
+        } else if(WuiResponsive.isConstraintsUp(constraints, WuiBreakpoint.sm)) {
+          maxWidth = 540;
+        } else {
+          maxWidth = constraints.maxWidth;
+        }
       }
 
       return Center(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 const Map<String, double> wuiBreakpoints = {
   "sm" : 576,
@@ -28,6 +29,10 @@ class WuiResponsive {
 
   static bool isBreakpointUp(BuildContext context, WuiBreakpoint breakpoint) {
     return MediaQuery.of(context).size.width > wuiBreakpoints[breakpoint.name]!;
+  }
+
+  static bool isConstraintsUp(BoxConstraints constraints, WuiBreakpoint breakpoint) {
+    return constraints.maxWidth > wuiBreakpoints[breakpoint.name]!;
   }
 
 }
