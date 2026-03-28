@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wui_flutter/utils/responsive.dart';
 
 class WuiSliverAppBar extends StatefulWidget {
 
@@ -131,7 +132,12 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
       title: AnimatedOpacity(
         opacity: showTitle ? 1.0 : 0.0,
         duration: const Duration(milliseconds: 200),
-        child: widget.title
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: WuiResponsive.isBreakpointUp(context, WuiBreakpoint.md) ? 8 : 0
+          ),
+          child: widget.title,
+        )
       ),
       flexibleSpace: AnimatedOpacity(
         opacity: _flexibleContentOpacity,

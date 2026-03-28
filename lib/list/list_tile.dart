@@ -9,8 +9,10 @@ class WuiListTile extends StatelessWidget {
   final Widget? trailing;
   final EdgeInsets? padding;
   final Color? fillColor;
+  final BorderRadius? borderRadius;
 
   const WuiListTile({ super.key, 
+    this.borderRadius,
     this.onTap,
     this.title,
     this.subTitle,
@@ -22,53 +24,66 @@ class WuiListTile extends StatelessWidget {
 
   final IconThemeData iconThemeData = const IconThemeData(
     color: Colors.black87
-  );  
+  );
+
+  TextStyle _defaultTitleTextStyle(context) {
+    return TextStyle(
+      fontFamily: "Inter",
+      fontSize: 16,
+      height: 1.15,
+      color: Theme.of(context).colorScheme.onSurface,
+      overflow: TextOverflow.ellipsis
+    );
+  }
+
+  TextStyle _defaultSubTitleTextStyle(context) {
+    return TextStyle(
+      fontFamily: "Inter",
+      fontSize: 12,
+      height: 1.15,
+      color: Theme.of(context).colorScheme.onSurface,
+      overflow: TextOverflow.ellipsis
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     EdgeInsets defaultPadding = const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
 
-    return RawMaterialButton(
-      elevation: 0.0,
-      focusElevation: 0.0,
-      hoverElevation: 0.0,
-      highlightElevation: 0.0,
-      disabledElevation: 0.0,
-      fillColor: fillColor,
-      padding: padding ?? defaultPadding,
-      onPressed: onTap,
-      child: Row(
-        spacing: 24,
-        children: [
-          if(leading != null) leading!,
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 4.0,
-              children: [
-                ...(title != null ? [DefaultTextStyle(
-                  style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 16.0,
-                    height: 1.15,
-                    color: Theme.of(context).colorScheme.onSurface
-                  ),
-                  child: title!
-                )] : []),
-                ...(subTitle != null ? [DefaultTextStyle(
-                   style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 14.0,
-                    height: 1.15,
-                    color: Theme.of(context).colorScheme.onSurface
-                  ),
-                  child: subTitle!
-                )] : [])
-              ],
-            ),
+    return Material(
+      clipBehavior: Clip.antiAlias,
+      color: fillColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: borderRadius ?? BorderRadius.circular(0)
+      ),
+      child: InkWell(
+        onTap: onTap,
+        child: Padding(
+          padding: padding ?? defaultPadding,
+          child: Row(
+            spacing: 24,
+            children: [
+              if(leading != null) leading!,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 4.0,
+                  children: [
+                    ...(title != null ? [DefaultTextStyle(
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(overflow: TextOverflow.ellipsis) ?? _defaultTitleTextStyle(context),
+                      child: title!
+                    )] : []),
+                    ...(subTitle != null ? [DefaultTextStyle(
+                       style: Theme.of(context).textTheme.bodySmall?.copyWith(overflow: TextOverflow.ellipsis) ?? _defaultSubTitleTextStyle(context),
+                      child: subTitle!
+                    )] : [])
+                  ],
+                ),
+              ),
+              ...(trailing != null ? [const SizedBox(width: 12), trailing!, const SizedBox(width: 4)] : []),
+            ],
           ),
-          ...(trailing != null ? [const SizedBox(width: 12), trailing!, const SizedBox(width: 4)] : []),
-        ],
+        ),
       )
     );
   }
