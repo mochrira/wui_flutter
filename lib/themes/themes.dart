@@ -33,7 +33,9 @@ class WuiTheme {
         onSurface: Colors.grey.shade700,
         primary: calculatedPrimaryColor,
         onPrimary: onPrimaryColor,
-        outline: Colors.grey.shade400
+        outline: Colors.grey.shade400,
+        error: const Color.fromRGBO(164, 40, 40, 1),
+        onError: const Color.fromRGBO(245, 240, 240, 1)
       )
     );
   }
@@ -61,7 +63,9 @@ class WuiTheme {
         onSurface: Colors.grey.shade400,
         primary: calculatedPrimaryColor,
         onPrimary: onPrimaryColor,
-        outline: Colors.black38
+        outline: Colors.black38,
+        error: const Color.fromRGBO(164, 40, 40, 1),
+        onError: const Color.fromRGBO(245, 240, 240, 1)
       )
     );
   }

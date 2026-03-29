@@ -58,7 +58,7 @@ class WuiTextField extends StatelessWidget {
         ),
         TextField(
           controller: controller,
-          style: const TextStyle( fontFamily: "Inter", fontSize: 14 ).merge(textStyle),
+          style: const TextStyle( fontFamily: "Inter", fontSize: 14, height: 24 / 14).merge(textStyle),
           obscureText: obscureText ?? false,
           keyboardType: keyboardType,
           inputFormatters: inputFormatters,
@@ -70,7 +70,7 @@ class WuiTextField extends StatelessWidget {
             hintText: hintText,
             isDense: false,
             constraints: BoxConstraints.tight(const Size.fromHeight(48)),
-            contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 0),
+            contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             hintStyle: WuiInputStyle.hintTextStyle(context).merge(hintStyle),
             enabledBorder: enabledBorder ?? WuiInputStyle.border(context),
             focusedBorder: focusedBorder ?? WuiInputStyle.focusedBorder(context),

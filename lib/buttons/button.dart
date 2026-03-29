@@ -52,7 +52,7 @@ class WuiButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: WuiButtonStyle.base().merge(style).copyWith(
+      style: (style ?? WuiButtonStyle.normal(context)).copyWith(
         padding: _getPadding(),
         minimumSize: _getSize()
       ),

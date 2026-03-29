@@ -10,7 +10,7 @@ class WuiInputStyle {
       borderSide: BorderSide(
         style: BorderStyle.solid,
         width: 0.8,
-        color: Theme.of(context).colorScheme.onSurface.withAlpha(50)
+        color: Theme.of(context).colorScheme.onSurface.withAlpha(100)
       ),
       borderRadius: BorderRadius.circular(8)
     );
@@ -21,7 +21,7 @@ class WuiInputStyle {
       borderSide: BorderSide(
         style: BorderStyle.solid,
         width: 1.0,
-        color: Theme.of(context).colorScheme.onSurface.withAlpha(200)
+        color: Theme.of(context).colorScheme.primary
       ),
       borderRadius: BorderRadius.circular(8)
     );

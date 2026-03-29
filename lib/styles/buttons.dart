@@ -6,7 +6,164 @@ import 'typography.dart';
 enum WuiButtonSize { small, normal, large }
 enum WuiButtonWidth { shrink, infinity }
 
+class WuiButtonSizes {
+  static ButtonStyle xsmall(BuildContext context) {
+    return ButtonStyle(
+      iconSize: const WidgetStatePropertyAll(20),
+      textStyle: WidgetStatePropertyAll(
+        Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontSize: 14,
+          height: 20 / 14,
+          fontWeight: FontWeight.w500
+        )
+      ),
+      padding: const WidgetStatePropertyAll(
+        EdgeInsets.symmetric(horizontal: 12, vertical: 6)
+      )
+    );
+  }
+
+  static ButtonStyle small(BuildContext context) {
+    return ButtonStyle(
+      iconSize: const WidgetStatePropertyAll(20),
+      textStyle: WidgetStatePropertyAll(
+        Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontSize: 14,
+          height: 20 / 14,
+          fontWeight: FontWeight.w500
+        )
+      ),
+      padding: const WidgetStatePropertyAll(
+        EdgeInsets.symmetric(horizontal: 12, vertical: 10)
+      )
+    );
+  }
+
+  static ButtonStyle medium(BuildContext context) {
+    return ButtonStyle(
+      iconSize: const WidgetStatePropertyAll(20),
+      textStyle: WidgetStatePropertyAll(
+        Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontSize: 16,
+          height: 24 / 16,
+          fontWeight: FontWeight.w500
+        )
+      ),
+      padding: const WidgetStatePropertyAll(
+        EdgeInsets.symmetric(horizontal: 24, vertical: 16)
+      )
+    );
+  }
+
+  static ButtonStyle large(BuildContext context) {
+    return ButtonStyle(
+      iconSize: const WidgetStatePropertyAll(32),
+      textStyle: WidgetStatePropertyAll(
+        Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontSize: 24,
+          height: 32 / 24,
+          fontWeight: FontWeight.w500
+        )
+      ),
+      padding: const WidgetStatePropertyAll(
+        EdgeInsets.symmetric(horizontal: 48, vertical: 32)
+      )
+    );
+  }
+
+  static ButtonStyle xlarge(BuildContext context) {
+    return ButtonStyle(
+      iconSize: const WidgetStatePropertyAll(40),
+      textStyle: WidgetStatePropertyAll(
+        Theme.of(context).textTheme.bodyMedium?.copyWith(
+          fontSize: 32,
+          height: 40 / 32,
+          fontWeight: FontWeight.w500
+        )
+      ),
+      padding: const WidgetStatePropertyAll(
+        EdgeInsets.symmetric(horizontal: 64, vertical: 48)
+      )
+    );
+  }
+}
+
+class WuiFilledButtonStyle {
+
+  static ButtonStyle normal(BuildContext context) {
+    return ButtonStyle(
+      backgroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onSurface
+      }),
+      foregroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.surface
+      }),
+    );
+  }
+
+  static ButtonStyle primary(BuildContext context) {
+    return ButtonStyle(
+      backgroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.primary
+      }),
+      foregroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onPrimary
+      }),
+    );
+  }
+
+  static ButtonStyle danger(BuildContext context) {
+    return ButtonStyle(
+      backgroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.error
+      }),
+      foregroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onError
+      }),
+    );
+  }
+
+}
+
+class WuiTextButtonStyle {
+
+  static ButtonStyle normal(BuildContext context) {
+    return ButtonStyle(
+      overlayColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onSurface.withAlpha(15)
+      }),
+      foregroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.onSurface
+      }),
+    );
+  }
+
+  static ButtonStyle primary(BuildContext context) {
+    return ButtonStyle(
+      overlayColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.primary.withAlpha(15)
+      }),
+      foregroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.primary
+      }),
+    );
+  }
+
+  static ButtonStyle danger(BuildContext context) {
+    return ButtonStyle(
+      overlayColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.error.withAlpha(15)
+      }),
+      foregroundColor: WidgetStateColor.fromMap({
+        WidgetState.any: Theme.of(context).colorScheme.error
+      }),
+    );
+  }
+
+}
+
 class WuiButtonStyle {
+
 
   static ButtonStyle normal(BuildContext context) {
     return ButtonStyle(
