@@ -20,14 +20,11 @@ class WuiBottomSheet {
       constraints: BoxConstraints( 
         maxWidth: maxWidth ?? 600 
       ),
-      builder: (context) => Padding(
-        padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-        child: builder(context),
-      )
+      builder: (context) => builder(context)
     );
   }
 
-  static Future<T> builder<T>(BuildContext context, {Widget? title, required Function(BuildContext) builder}) async {
+  static Future<T> builder<T>({required BuildContext context, required Function(BuildContext) builder}) async {
     return await showModalBottomSheet(
       context: context, 
       useRootNavigator: true,
