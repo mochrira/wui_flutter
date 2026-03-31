@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 const Map<String, double> wuiBreakpoints = {
   "sm" : 576,
