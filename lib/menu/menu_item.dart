@@ -5,8 +5,9 @@ class WuiMenuItem extends StatelessWidget {
   final Icon? icon;
   final Widget? child;
   final void Function()? onTap;
+  final EdgeInsets? padding;
 
-  const WuiMenuItem({super.key, this.onTap, this.icon, this.child});
+  const WuiMenuItem({super.key, this.onTap, this.icon, this.child, this.padding});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class WuiMenuItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+          padding: padding ?? const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           child: Row(
             spacing: 24,
             children: [

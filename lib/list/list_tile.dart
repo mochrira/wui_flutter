@@ -70,7 +70,10 @@ class WuiListTile extends StatelessWidget {
                   spacing: 4.0,
                   children: [
                     ...(title != null ? [DefaultTextStyle(
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(overflow: TextOverflow.ellipsis) ?? _defaultTitleTextStyle(context),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        overflow: TextOverflow.ellipsis,
+                        fontWeight: FontWeight.w600
+                      ) ?? _defaultTitleTextStyle(context),
                       child: title!
                     )] : []),
                     ...(subTitle != null ? [DefaultTextStyle(

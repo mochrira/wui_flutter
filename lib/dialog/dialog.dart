@@ -32,43 +32,43 @@ class WuiDialog extends StatelessWidget {
   }
 
   static Future<T?> open<T>(BuildContext context, {
+    BoxConstraints? constraints,
     required String title,
     required String message,
-    required List<String> buttons
+    required List<String> buttons,
+    int? defaultIndex
   }) {
     return showDialog(context: context, builder: (BuildContext context) {
       return WuiDialog(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-              child: DefaultTextStyle(
+        constraints: constraints ?? const BoxConstraints(maxWidth: 400),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              DefaultTextStyle(
                 style: (Theme.of(context).textTheme.titleMedium ?? const TextStyle()).copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.w600
                 ),
                 child: Text(title),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(24, 0, 24, 20),
-              child: DefaultTextStyle(
+              const SizedBox(height: 16),
+              DefaultTextStyle(
                 style: (Theme.of(context).textTheme.bodyMedium ?? const TextStyle()),
                 child: Text(message)
-              )
-            ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(24, 0, 16, 12),
-              child: Row(
+              ),
+              const SizedBox(height: 16),
+              Row(
                 spacing: 8.0,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: buttons.asMap().map(
                   (index, caption) => MapEntry(index, 
-                    WuiButton(
-                      style: WuiButtonStyle.base(),
-                      size: WuiButtonSize.small,
+                    TextButton(
+                      style: WuiButtonSizes.small(context).merge(
+                        defaultIndex == index ? WuiTextButtonStyle.primary(context) : WuiTextButtonStyle.normal(context)
+                      ),
                       child: Text(caption),
                       onPressed: () {
                         Navigator.of(context).pop(index);
@@ -77,8 +77,8 @@ class WuiDialog extends StatelessWidget {
                   )
                 ).values.toList(),
               )
-            )
-          ],
+            ],
+          ),
         )
       );
     });
