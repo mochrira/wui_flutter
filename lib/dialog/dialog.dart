@@ -31,7 +31,7 @@ class WuiDialog extends StatelessWidget {
     );
   }
 
-  static Future<T?> open<T>(BuildContext context, {
+  static Future<int?> open(BuildContext context, {
     BoxConstraints? constraints,
     required String title,
     required String message,
@@ -71,7 +71,7 @@ class WuiDialog extends StatelessWidget {
                       ),
                       child: Text(caption),
                       onPressed: () {
-                        Navigator.of(context).pop(index);
+                        Navigator.pop(context, index);
                       },
                     )
                   )
