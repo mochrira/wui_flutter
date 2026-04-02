@@ -67,19 +67,20 @@ class WuiListTile extends StatelessWidget {
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   spacing: 4.0,
                   children: [
-                    ...(title != null ? [DefaultTextStyle(
+                    if(title != null) DefaultTextStyle(
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         overflow: TextOverflow.ellipsis,
                         fontWeight: FontWeight.w600
                       ) ?? _defaultTitleTextStyle(context),
                       child: title!
-                    )] : []),
-                    ...(subTitle != null ? [DefaultTextStyle(
+                    ),
+                    if(subTitle != null) DefaultTextStyle(
                        style: Theme.of(context).textTheme.bodySmall?.copyWith(overflow: TextOverflow.ellipsis) ?? _defaultSubTitleTextStyle(context),
                       child: subTitle!
-                    )] : [])
+                    )
                   ],
                 ),
               ),
