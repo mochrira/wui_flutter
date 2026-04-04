@@ -9,6 +9,8 @@ class WuiSliverAppBar extends StatefulWidget {
   final Widget? title;
   final bool? alwaysShowTitle;
 
+  final double? collapsedHeight;
+
   final String? flexibleTitleText; // deprecated
   final String? flexibleSubTitleText; // deprecated
   final List<Widget>? actions;
@@ -20,6 +22,9 @@ class WuiSliverAppBar extends StatefulWidget {
     this.leading, 
     this.controller, 
     this.alwaysShowTitle, 
+
+    this.collapsedHeight,
+
     this.actions, 
     this.title, 
     this.flexibleTitleText, 
@@ -51,7 +56,7 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
   }
 
   double collapsedHeight(BuildContext context) {
-    return kToolbarHeight + 8;
+    return (widget.collapsedHeight ?? kToolbarHeight) + 8;
   }
 
   TextStyle flexTitleStyle(BuildContext context) {
@@ -122,6 +127,7 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      centerTitle: true,
       actions: widget.actions,
       collapsedHeight: collapsedHeight(context),
       expandedHeight: expandedHeight(context),
@@ -132,11 +138,9 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
       title: AnimatedOpacity(
         opacity: showTitle ? 1.0 : 0.0,
         duration: const Duration(milliseconds: 200),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: WuiResponsive.isBreakpointUp(context, WuiBreakpoint.md) ? 8 : 0
-          ),
-          child: widget.title,
+        child: DefaultTextStyle(
+          style: Theme.of(context).textTheme.titleLarge!, 
+          child: widget.title!
         )
       ),
       flexibleSpace: AnimatedOpacity(

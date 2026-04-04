@@ -27,28 +27,21 @@ class WuiListTile extends StatelessWidget {
   );
 
   TextStyle _defaultTitleTextStyle(context) {
-    return TextStyle(
-      fontFamily: "Inter",
-      fontSize: 16,
-      height: 1.15,
-      color: Theme.of(context).colorScheme.onSurface,
-      overflow: TextOverflow.ellipsis
+    return Theme.of(context).textTheme.bodyLarge!.copyWith(
+      height: 1.5,
+      fontWeight: FontWeight.w600
     );
   }
 
   TextStyle _defaultSubTitleTextStyle(context) {
-    return TextStyle(
-      fontFamily: "Inter",
-      fontSize: 12,
-      height: 1.15,
-      color: Theme.of(context).colorScheme.onSurface,
-      overflow: TextOverflow.ellipsis
+    return Theme.of(context).textTheme.bodyMedium!.copyWith(
+      height: 1.5
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsets defaultPadding = const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
+    EdgeInsets defaultPadding = const EdgeInsets.symmetric(horizontal: 16);
 
     return Material(
       clipBehavior: Clip.antiAlias,
@@ -58,34 +51,36 @@ class WuiListTile extends StatelessWidget {
       ),
       child: InkWell(
         onTap: onTap,
-        child: Padding(
-          padding: padding ?? defaultPadding,
-          child: Row(
-            spacing: 24,
-            children: [
-              if(leading != null) leading!,
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  spacing: 4.0,
-                  children: [
-                    if(title != null) DefaultTextStyle(
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        overflow: TextOverflow.ellipsis,
-                        fontWeight: FontWeight.w600
-                      ) ?? _defaultTitleTextStyle(context),
-                      child: title!
-                    ),
-                    if(subTitle != null) DefaultTextStyle(
-                       style: Theme.of(context).textTheme.bodySmall?.copyWith(overflow: TextOverflow.ellipsis) ?? _defaultSubTitleTextStyle(context),
-                      child: subTitle!
-                    )
-                  ],
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minHeight: 56
+          ),
+          child: Padding(
+            padding: padding ?? defaultPadding,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              spacing: 24,
+              children: [
+                if(leading != null) leading!,
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if(title != null) DefaultTextStyle(
+                        style: _defaultTitleTextStyle(context),
+                        child: title!
+                      ),
+                      if(subTitle != null) DefaultTextStyle(
+                        style: _defaultSubTitleTextStyle(context),
+                        child: subTitle!
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              ...(trailing != null ? [const SizedBox(width: 12), trailing!, const SizedBox(width: 4)] : []),
-            ],
+                if(trailing != null) trailing!
+              ],
+            ),
           ),
         ),
       )

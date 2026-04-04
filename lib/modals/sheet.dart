@@ -33,7 +33,12 @@ class WuiBottomSheet {
         borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16))
       ),
       showDragHandle: true,
-      builder: (context) => SafeArea(child: builder(context))
+      builder: (context) => SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: builder(context)
+        )
+      )
     );
   }
 
