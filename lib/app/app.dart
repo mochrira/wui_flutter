@@ -18,4 +18,5 @@ class WuiApp extends StatelessWidget {
       darkTheme: WuiTheme.dark(context, primaryColor: primaryColor)
     );
   }
+
 }

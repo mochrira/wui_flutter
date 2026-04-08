@@ -12,6 +12,7 @@ class WuiAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      toolbarHeight: 72,
       surfaceTintColor: Colors.transparent,
       backgroundColor: Theme.of(context).colorScheme.surface,
       leading: leading,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class WuiPage extends StatelessWidget {
 
   final Widget body;
-  final PreferredSizeWidget? appBar;
+  final Widget? appBar;
   final Widget? drawer;
   final Widget? fab;
   final Widget? bottom;
@@ -15,7 +15,10 @@ class WuiPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       drawer: drawer,
-      appBar: appBar,
+      appBar: appBar != null ? PreferredSize(
+        preferredSize: const Size.fromHeight(64),
+        child: appBar!
+      ) : null,
       body: SafeArea(
         child: body
       ),
