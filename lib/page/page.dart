@@ -7,13 +7,15 @@ class WuiPage extends StatelessWidget {
   final Widget? drawer;
   final Widget? fab;
   final Widget? bottom;
+  final Color? backgroundColor;
 
-  const WuiPage({super.key, required this.body, this.appBar, this.drawer, this.fab, this.bottom});
+  const WuiPage({super.key, required this.body, this.appBar, this.drawer, this.fab, this.bottom, this.backgroundColor});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      
+      backgroundColor: backgroundColor ?? Theme.of(context).colorScheme.surface,
       drawer: drawer,
       appBar: appBar != null ? PreferredSize(
         preferredSize: const Size.fromHeight(64),
