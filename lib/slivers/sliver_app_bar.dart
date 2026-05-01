@@ -9,7 +9,7 @@ class WuiSliverAppBar extends StatefulWidget {
   final Widget? title;
   final bool? alwaysShowTitle;
 
-  final double? collapsedHeight;
+  final double collapsedHeight;
 
   final String? flexibleTitleText; // deprecated
   final String? flexibleSubTitleText; // deprecated
@@ -23,7 +23,7 @@ class WuiSliverAppBar extends StatefulWidget {
     this.controller, 
     this.alwaysShowTitle, 
 
-    this.collapsedHeight,
+    this.collapsedHeight = 72,
 
     this.actions, 
     this.title, 
@@ -127,8 +127,8 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      centerTitle: true,
       actions: widget.actions,
+      toolbarHeight: widget.collapsedHeight,
       collapsedHeight: collapsedHeight(context),
       expandedHeight: expandedHeight(context),
       backgroundColor: Theme.of(context).colorScheme.surface,
@@ -139,7 +139,7 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
         opacity: showTitle ? 1.0 : 0.0,
         duration: const Duration(milliseconds: 200),
         child: DefaultTextStyle(
-          style: Theme.of(context).textTheme.titleLarge!, 
+          style: Theme.of(context).textTheme.titleLarge!,
           child: widget.title!
         )
       ),
