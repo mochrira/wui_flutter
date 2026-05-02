@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wui_flutter/utils/responsive.dart';
 
 class WuiSliverAppBar extends StatefulWidget {
 
@@ -8,6 +7,7 @@ class WuiSliverAppBar extends StatefulWidget {
   final Widget? leading;
   final Widget? title;
   final bool? alwaysShowTitle;
+  final bool automaticallyImplyLeading;
 
   final double collapsedHeight;
 
@@ -22,6 +22,7 @@ class WuiSliverAppBar extends StatefulWidget {
     this.leading, 
     this.controller, 
     this.alwaysShowTitle, 
+    this.automaticallyImplyLeading = true,
 
     this.collapsedHeight = 72,
 
@@ -127,6 +128,7 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      automaticallyImplyLeading: widget.automaticallyImplyLeading,
       actions: widget.actions,
       toolbarHeight: widget.collapsedHeight,
       collapsedHeight: collapsedHeight(context),
@@ -138,10 +140,10 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
       title: AnimatedOpacity(
         opacity: showTitle ? 1.0 : 0.0,
         duration: const Duration(milliseconds: 200),
-        child: DefaultTextStyle(
+        child: widget.title != null ? DefaultTextStyle(
           style: Theme.of(context).textTheme.titleLarge!,
           child: widget.title!
-        )
+        ) : null
       ),
       flexibleSpace: AnimatedOpacity(
         opacity: _flexibleContentOpacity,

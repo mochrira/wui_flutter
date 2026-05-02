@@ -19,7 +19,7 @@ enum WuiBreakpoint {
 class WuiResponsive {
 
   static bool isTablet(BuildContext context) {
-    return MediaQuery.of(context).size.width >= 600;
+    return isBreakpointUp(context, WuiBreakpoint.lg);
   }
 
   static bool isMobile(BuildContext context) {

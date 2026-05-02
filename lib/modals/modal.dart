@@ -14,7 +14,7 @@ class WuiModal extends StatelessWidget {
   Widget build(BuildContext context) {
 
     EdgeInsets defaultContentPadding = EdgeInsets.fromLTRB(
-      24, header != null ? 12 : 24, 24, footer != null? 12 : 24
+      24, header != null ? 0 : 24, 24, footer != null? 0 : 24
     );
 
     return Dialog(
@@ -28,7 +28,7 @@ class WuiModal extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if(header != null) Padding(
-            padding: const EdgeInsets.fromLTRB(24, 8, 24, 20),
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
             child: DefaultTextStyle(
               textAlign: TextAlign.center,
               style: TextStyle(
