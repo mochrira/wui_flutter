@@ -18,13 +18,14 @@ class WuiTextField extends StatelessWidget {
   final FocusNode? focusNode;
   final void Function()? onTap;
   final void Function(String)? onChanged;
+  final void Function(String)? onSubmitted;
   final Widget? suffix;
   final TextAlign? textAlign;
   final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
   final EdgeInsets? contentPadding;
   final int? minLines;
-  final int? maxLines;
+  final int maxLines;
   final TextInputAction? textInputAction;
   
   const WuiTextField({
@@ -48,9 +49,10 @@ class WuiTextField extends StatelessWidget {
     this.focusedBorder,
     this.contentPadding,
     this.prefix,
-    this.maxLines,
+    this.maxLines = 1,
     this.minLines,
-    this.textInputAction
+    this.textInputAction,
+    this.onSubmitted
   });
 
   @override
@@ -88,6 +90,7 @@ class WuiTextField extends StatelessWidget {
             suffixIcon: suffixIcon,
             suffix: suffix
           ),
+          onSubmitted: onSubmitted,
         ),
       ],
     );

@@ -2,7 +2,6 @@ import 'package:example/features/main/main_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:wui_flutter/wui_flutter.dart';
 
-import 'pages/home_page.dart';
 void main() {
   runApp(const MyApp());
 }
