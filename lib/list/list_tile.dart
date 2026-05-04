@@ -10,8 +10,11 @@ class WuiListTile extends StatelessWidget {
   final EdgeInsets? padding;
   final Color? fillColor;
   final BorderRadius? borderRadius;
+  final Widget? bottom;
+  final double titleSpacing;
 
-  const WuiListTile({ super.key, 
+  const WuiListTile({ 
+    super.key, 
     this.borderRadius,
     this.onTap,
     this.title,
@@ -19,7 +22,9 @@ class WuiListTile extends StatelessWidget {
     this.leading,
     this.trailing,
     this.padding,
-    this.fillColor
+    this.fillColor,
+    this.bottom,
+    this.titleSpacing = 24
   });
 
   final IconThemeData iconThemeData = const IconThemeData(
@@ -41,7 +46,7 @@ class WuiListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsets defaultPadding = const EdgeInsets.symmetric(horizontal: 16);
+    EdgeInsets defaultPadding = const EdgeInsets.symmetric(horizontal: 16, vertical: 16);
 
     return Material(
       clipBehavior: Clip.antiAlias,
@@ -51,36 +56,37 @@ class WuiListTile extends StatelessWidget {
       ),
       child: InkWell(
         onTap: onTap,
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(
-            minHeight: 56
-          ),
-          child: Padding(
-            padding: padding ?? defaultPadding,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              spacing: 24,
-              children: [
-                if(leading != null) leading!,
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if(title != null) DefaultTextStyle(
-                        style: _defaultTitleTextStyle(context),
-                        child: title!
-                      ),
-                      if(subTitle != null) DefaultTextStyle(
-                        style: _defaultSubTitleTextStyle(context),
-                        child: subTitle!
-                      )
-                    ],
+        child: Padding(
+          padding: padding ?? defaultPadding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  if(leading != null) leading!,
+                  if(leading != null) SizedBox(width: titleSpacing),
+                  Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if(title != null) DefaultTextStyle(
+                          style: _defaultTitleTextStyle(context),
+                          child: title!
+                        ),
+                        if(subTitle != null) DefaultTextStyle(
+                          style: _defaultSubTitleTextStyle(context),
+                          child: subTitle!
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                if(trailing != null) trailing!
-              ],
-            ),
+                  if(trailing != null) trailing!
+                ],
+              ),
+              if (bottom != null) bottom!
+            ],
           ),
         ),
       )

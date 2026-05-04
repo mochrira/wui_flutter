@@ -24,7 +24,7 @@ class WuiSliverAppBar extends StatefulWidget {
     this.alwaysShowTitle, 
     this.automaticallyImplyLeading = true,
 
-    this.collapsedHeight = 72,
+    this.collapsedHeight = 56,
 
     this.actions, 
     this.title, 
@@ -57,7 +57,7 @@ class _WuiSliverAppBarState extends State<WuiSliverAppBar> {
   }
 
   double collapsedHeight(BuildContext context) {
-    return (widget.collapsedHeight ?? kToolbarHeight) + 8;
+    return (widget.collapsedHeight ?? kToolbarHeight);
   }
 
   TextStyle flexTitleStyle(BuildContext context) {

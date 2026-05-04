@@ -23,6 +23,9 @@ class WuiTextField extends StatelessWidget {
   final InputBorder? enabledBorder;
   final InputBorder? focusedBorder;
   final EdgeInsets? contentPadding;
+  final int? minLines;
+  final int? maxLines;
+  final TextInputAction? textInputAction;
   
   const WuiTextField({
     super.key, 
@@ -44,7 +47,10 @@ class WuiTextField extends StatelessWidget {
     this.enabledBorder,
     this.focusedBorder,
     this.contentPadding,
-    this.prefix
+    this.prefix,
+    this.maxLines,
+    this.minLines,
+    this.textInputAction
   });
 
   @override
@@ -57,6 +63,9 @@ class WuiTextField extends StatelessWidget {
           child: Text(labelText!, style: WuiInputStyle.labelTextStyle(context)),
         ),
         TextField(
+          textInputAction: textInputAction,
+          maxLines: maxLines,
+          minLines: minLines,
           controller: controller,
           style: const TextStyle( fontFamily: "Inter", fontSize: 14, height: 24 / 14).merge(textStyle),
           obscureText: obscureText ?? false,
@@ -69,7 +78,7 @@ class WuiTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: hintText,
             isDense: false,
-            constraints: BoxConstraints.tight(const Size.fromHeight(48)),
+            // constraints: BoxConstraints.tight(const Size.fromHeight(48)),
             contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             hintStyle: WuiInputStyle.hintTextStyle(context).merge(hintStyle),
             enabledBorder: enabledBorder ?? WuiInputStyle.border(context),
